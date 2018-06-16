@@ -23,6 +23,10 @@ export default new Router({
       path: '/project/:slug',
       name: 'project',
       component: Project,
+      props: (route) => ({
+        slug: route.params.slug
+      })
     },
+
   ],
 });

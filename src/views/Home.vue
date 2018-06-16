@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+
+    {{$route.params}}
     <section v-if="allProjects">
         <div class="project" v-for="project in allProjects" :key="project.id">
           <router-link :to="`/project/${project.slug}`">

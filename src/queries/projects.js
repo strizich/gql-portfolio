@@ -25,6 +25,9 @@ export const PROJECT = gql`
             slug
             name
             description
-            createdAt
+            tools{
+                name
+                id
+            }
         }
     }`;

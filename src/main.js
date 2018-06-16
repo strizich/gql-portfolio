@@ -28,7 +28,7 @@ Vue.use(Vuesax);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
+  router: router,
   store,
   provide: apolloProvider.provide(),
   render: h => h(App),
