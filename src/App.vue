@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <AppHeader/>
+    <PageHeader/>
     <main>
       <router-view/>
     </main>
@@ -8,18 +8,18 @@
 </template>
 
 <script>
-  import AppHeader from './components/AppHeader.vue';
+import PageHeader from './components/AppHeader.vue'
 
-  export default{
-    name: 'app',
-    components: { AppHeader },
-  }
+export default{
+  name: 'app',
+  components: { PageHeader }
+}
 </script>
 
 <style lang="scss">
  main{
    max-width:1440px;
    margin:0 auto;
-   padding:0 16px
+   padding:54px 16px 0;
  }
 </style>
