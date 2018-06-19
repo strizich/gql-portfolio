@@ -5,7 +5,6 @@
     <section v-if="allProjects">
         <div class="project" v-for="project in allProjects" :key="project.id">
           <router-link :to="`/project/${project.slug}`">
-          <!-- <vs-button vs-type="primary-filled">Primary</vs-button> -->
             <h2>{{project.name}}</h2>
             <div v-bind:html="project.description"></div>
             <ul class="tools">

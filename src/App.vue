@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <AppHeader/>
-    <router-view/>
+    <main>
+      <router-view/>
+    </main>
   </div>
 </template>
 
@@ -15,21 +17,9 @@
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+ main{
+   max-width:1440px;
+   margin:0 auto;
+   padding:0 16px
+ }
 </style>
