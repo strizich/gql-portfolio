@@ -1,6 +1,6 @@
 <template>
     <div class="case__image">
-        <img v-bind:src="`${caseImage}`"/>
+        <img :src="caseImage"/>
     </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
   name: 'featureImage',
   props: [
-    'caseImage'
+    'caseImage',
+    'src'
   ]
 }
 </script>

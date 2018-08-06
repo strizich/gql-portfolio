@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <router-link v-for="data in caseStudies" v-bind:key="data.id" :to="`/case/${data.id}`">
-      <FeaturedCard v-bind="data" />
+      <card v-bind="data" :url="imgUrl"/>
     </router-link>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 // import StudyCard from '../components/StudyCard.vue'
 import Loading from '../components/Loading.vue'
-import FeaturedCard from '@/components/Featured.vue'
+import Card from '@/components/Card.vue'
 import caseStudies from '@/graphql/CaseStudies.graphql'
 
 // import gql from 'graphql-tag'
@@ -20,7 +20,8 @@ export default {
   data: () => ({
     loading: 0,
     data: null,
-    postCount: null
+    postCount: null,
+    imgUrl: 'img/onemv_dispatch_feature.png'
   }),
   apollo: {
     $loadingKey: 'loading',
@@ -33,7 +34,7 @@ export default {
       }
     }
   },
-  components: { Loading, FeaturedCard }
+  components: { Loading, Card }
 }
 </script>
 

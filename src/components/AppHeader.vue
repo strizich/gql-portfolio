@@ -26,6 +26,8 @@ export default {
         top:0;
         left:0;
         width:100%;
+        z-index: 100;
+        background:#fff;
         h1{
           font-size: 18px;
           margin: 0;
