@@ -1,0 +1,10 @@
+query($first: Int!, $skip: Int!){ 
+  caseStudies(first: $first, skip: $skip){
+    id
+    title
+    postType
+    slug
+    updatedAt
+    featured
+  }
+}

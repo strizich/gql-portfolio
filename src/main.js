@@ -11,7 +11,7 @@ import store from './store'
 import 'vuesax/dist/vuesax.css'
 import './registerServiceWorker'
 
-const GRAPHCMS = 'https://api.graphcms.com/simple/v1/cjhm7y7wc7frt01838z8m44aw'
+const GRAPHCMS = 'https://api-useast.graphcms.com/v1/cjk4io64p001h01gmk8nchuzs/master'
 
 const apolloClient = new ApolloClient({
   link: new HttpLink({ uri: GRAPHCMS }),
@@ -24,6 +24,7 @@ const apolloProvider = new VueApollo({
 
 Vue.use(VueApollo)
 Vue.use(Vuesax)
+Vue.use(require('vue-moment'))
 
 Vue.config.productionTip = false
 

@@ -1,0 +1,15 @@
+#import './CaseStudyDetails.graphql'
+query($id: ID!){ 
+  caseStudy(where: {id: $id}) {
+    id
+    updatedAt
+    createdAt
+    title
+    postType
+    slug
+    content
+    projectDetail{
+      ...details
+    }
+  }
+}

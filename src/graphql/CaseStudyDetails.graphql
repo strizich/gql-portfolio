@@ -1,0 +1,6 @@
+fragment details on ProjectDetail{
+  id
+  launchDate
+  overview
+  role
+}

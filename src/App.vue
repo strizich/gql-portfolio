@@ -17,9 +17,14 @@ export default{
 </script>
 
 <style lang="scss">
+h4{
+  font-size: 11px;
+}
  main{
-   max-width:1440px;
    margin:0 auto;
-   padding:54px 16px 0;
+   padding:54px 0 0;
+ }
+ body{
+   padding:0;
  }
 </style>
