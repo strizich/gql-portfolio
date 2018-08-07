@@ -8,7 +8,7 @@
       :overview="caseStudy.projectDetail.overview"
       :updatedAt="caseStudy.projectDetail.launchDate"
     />
-      <vue-markdown class="case__content">{{ caseStudy.content }}</vue-markdown>
+      <vue-markdown class="case__content" html="true">{{ caseStudy.content }}</vue-markdown>
   </article>
 </template>
 
@@ -17,8 +17,8 @@
 import Loading from '../components/Loading.vue'
 import VueMarkdown from 'vue-markdown'
 import caseStudy from '@/graphql/CaseStudy.graphql'
-import featuredImage from '../components/FeaturedImage'
-import articleMast from '../components/ArticleMast'
+import FeaturedImage from '../components/FeaturedImage'
+import ArticleMast from '../components/ArticleMast'
 
 export default {
   name: 'CaseStudy',
@@ -35,11 +35,11 @@ export default {
       }
     }
   },
-  components: { VueMarkdown, Loading, featuredImage, articleMast }
+  components: { VueMarkdown, Loading, FeaturedImage, ArticleMast }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .case{
   &__content{
       max-width:1024px;
@@ -48,6 +48,19 @@ export default {
       position: relative;
       padding: 0 120px;
       margin: 64px auto;
+      h1, h2, h3, h4{
+        margin-bottom:16px;
+      }
+      p{
+        line-height: 1.5;
+        letter-spacing: .75px;
+      }
+      ul{
+        padding-left: 16px;
+        li{
+          margin: 8px;
+        }
+      }
   }
 }
 </style>

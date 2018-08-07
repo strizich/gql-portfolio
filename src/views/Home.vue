@@ -1,18 +1,19 @@
 <template>
   <div class="home">
-    <router-link v-for="data in caseStudies" v-bind:key="data.id" :to="`/case/${data.id}`">
-      <card v-bind="data" :url="imgUrl"/>
-    </router-link>
+    <vs-row vs-w="12">
+      <vs-col vs-w="8" vs-offset="2" v-for="data in caseStudies" v-bind:key="data.id">
+      <router-link :to="`/case/${data.id}`">
+        <card v-bind="data" :url="imgUrl"/>
+      </router-link>
+      </vs-col>
+    </vs-row>
   </div>
 </template>
 
 <script>
-// import StudyCard from '../components/StudyCard.vue'
 import Loading from '../components/Loading.vue'
 import Card from '@/components/Card.vue'
 import caseStudies from '@/graphql/CaseStudies.graphql'
-
-// import gql from 'graphql-tag'
 
 export default {
   name: 'home',
@@ -38,4 +39,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

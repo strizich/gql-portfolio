@@ -2,9 +2,9 @@
     <header>
       <h1>Page</h1>
         <nav>
-            <router-link exact to="/" class="link">Home</router-link>
+            <router-link exact to="/" class="link" tag="vs-button" vs-color="primary" vs-type="flat">Home</router-link>
             <a href="" class="link">Projects</a>
-            <router-link to="/about" class="link">About</router-link>
+            <router-link to="/about" class="link" tag="vs-button" vs-color="primary" vs-type="flat">About</router-link>
         </nav>
     </header>
 </template>

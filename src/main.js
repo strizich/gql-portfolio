@@ -7,7 +7,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
+import './assets/global.scss'
 import 'vuesax/dist/vuesax.css'
 import './registerServiceWorker'
 

@@ -6,28 +6,30 @@
       </div>
       <div class="case__mast__content">
         <featured-image :caseImage="caseImage"/>
-        <div class="case__details" >
-          <div class="col">
-            <h4>Overview</h4>
-            <p class="text">{{overview}}</p>
-          </div>
-          <div class="col">
-            <h4>My Role</h4>
-            <p>{{role}}</p>
-          </div>
-          <div class="col">
-            <h4>Launch Date</h4>
-           <p class="text__large">{{updatedAt | moment("MMM YYYY")}}</p>
-          </div>
+        <div class="case__details">
+          <vs-row>
+            <vs-col vs-xs="12" vs-w="6">
+              <h4 class="text__label">Overview</h4>
+              <p class="text">{{overview}}</p>
+            </vs-col>
+            <vs-col vs-xs="12" vs-w="3">
+              <h4 class="text__label">My Role</h4>
+              <p class="text" v-for="myRole in role" v-bind:key="myRole">{{myRole}}</p>
+            </vs-col>
+            <vs-col vs-xs="12" vs-w="3">
+              <h4 class="text__label">Launch Date</h4>
+              <p class="text__large">{{updatedAt | moment("MMM YYYY")}}</p>
+            </vs-col>
+          </vs-row>
         </div>
       </div>
     </div>
 </template>
 
 <script>
-import featuredImage from '@/components/FeaturedImage'
+import FeaturedImage from '@/components/FeaturedImage'
 export default {
-  name: 'articleMast',
+  name: 'ArticleMast',
   props: [
     'imgUrl',
     'postType',
@@ -38,11 +40,35 @@ export default {
     'updatedAt'
   ],
   components: {
-    featuredImage
+    FeaturedImage
   }
 }
 </script>
 <style lang="scss" scoped>
+
+.vs-col{
+  padding:8px;
+}
+
+.text{
+    font-size: 14px;
+    font-weight: 300;
+    line-height:1.3;
+    letter-spacing: .75px;
+    &__large{
+      font-size: 42px;
+      font-weight: 100;
+    }
+    &__label{
+      font-size: 11px;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom:8px;
+      margin-top:16px;
+    }
+  }
+
 .case{
   margin:0 auto;
   position: relative;
@@ -75,10 +101,6 @@ export default {
       color:#fff;
       margin:0 auto;
     }
-  }
-  &__details{
-    display:flex;
-    justify-content: space-between;
   }
 }
 </style>

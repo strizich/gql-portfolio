@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'featureImage',
+  name: 'FeatureImage',
   props: [
     'caseImage',
     'src'

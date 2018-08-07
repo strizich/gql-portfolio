@@ -6,6 +6,7 @@ import CaseStudy from './views/CaseStudy.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
