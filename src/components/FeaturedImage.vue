@@ -8,8 +8,7 @@
 export default {
   name: 'FeatureImage',
   props: [
-    'caseImage',
-    'src'
+    'caseImage'
   ]
 }
 </script>

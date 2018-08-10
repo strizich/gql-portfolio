@@ -1,26 +1,22 @@
 <template>
   <div class="home">
-    <vs-row vs-w="12">
-      <vs-col vs-w="8" vs-offset="2" v-for="data in caseStudies" v-bind:key="data.id">
-      <router-link :to="`/case/${data.id}`">
-        <card v-bind="data" :url="imgUrl"/>
-      </router-link>
-      </vs-col>
-    </vs-row>
+    <div v-if="caseStudies">
+        <card v-bind="caseStudy" :url="imgUrl" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.id" />
+    </div>
+     <loading v-else/>
   </div>
 </template>
 
 <script>
-import Loading from '../components/Loading.vue'
-import Card from '@/components/Card.vue'
 import caseStudies from '@/graphql/CaseStudies.graphql'
+import Card from '@/components/Card.vue'
+import Loading from '@/components/Loading.vue'
 
 export default {
   name: 'home',
   loading: false,
   data: () => ({
     loading: 0,
-    data: null,
     postCount: null,
     imgUrl: 'img/onemv_dispatch_feature.png'
   }),

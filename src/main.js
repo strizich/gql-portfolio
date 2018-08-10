@@ -1,36 +1,44 @@
-import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import Vuesax from 'vuesax'
-import VueApollo from 'vue-apollo'
 import Vue from 'vue'
+import Vue2Filters from 'vue2-filters'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './assets/global.scss'
+import { ApolloClient } from 'apollo-client'
+import { HttpLink } from 'apollo-link-http'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import VueApollo from 'vue-apollo'
+import Vuesax from 'vuesax'
+
 import 'vuesax/dist/vuesax.css'
+import './assets/scss/global.scss'
 import './registerServiceWorker'
 
-const GRAPHCMS = 'https://api-useast.graphcms.com/v1/cjk4io64p001h01gmk8nchuzs/master'
+const httpLink = new HttpLink({
+  uri: 'https://api-useast.graphcms.com/v1/cjk4io64p001h01gmk8nchuzs/master'
+})
 
 const apolloClient = new ApolloClient({
-  link: new HttpLink({ uri: GRAPHCMS }),
-  cache: new InMemoryCache()
+  link: httpLink,
+  cache: new InMemoryCache(),
+  connectToDevTools: true
 })
 
 const apolloProvider = new VueApollo({
-  defaultClient: apolloClient
+  defaultClient: apolloClient,
+  defaultOptions: {
+    $loadingKey: 'loading'
+  }
 })
 
 Vue.use(VueApollo)
 Vue.use(Vuesax)
 Vue.use(require('vue-moment'))
-
+Vue.use(Vue2Filters)
 Vue.config.productionTip = false
 
 new Vue({
+  provide: apolloProvider.provide(),
   router: router,
   store,
-  provide: apolloProvider.provide(),
   render: h => h(App)
 }).$mount('#app')

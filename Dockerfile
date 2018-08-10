@@ -16,7 +16,6 @@ COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 WORKDIR /tmp/nginx/portfolio
 
 COPY . .
-RUN npm install -g http-server
 RUN npm install -g -s --no-progress yarn && \
     yarn && \
     yarn run build && \

@@ -45,11 +45,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
 .vs-col{
   padding:8px;
 }
-
 .text{
     font-size: 14px;
     font-weight: 300;
@@ -70,10 +68,10 @@ export default {
   }
 
 .case{
-  margin:0 auto;
+  margin: 0 auto;
   position: relative;
   &__mast{
-    padding-bottom:32px;
+    padding-bottom: 32px;
     position: relative;
     &:before{
       background:#000;
@@ -91,11 +89,12 @@ export default {
       max-width: 1024px;
       width: 100%;
       margin: 32px auto 0;
-      padding-bottom: 32px;
+      padding: 32px 16px;
     }
     &__content{
       max-width:1024px;
       width:100%;
+      padding:0 16px;
       z-index: 1;
       position: relative;
       color:#fff;

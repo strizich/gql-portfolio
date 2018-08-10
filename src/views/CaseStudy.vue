@@ -8,7 +8,7 @@
       :overview="caseStudy.projectDetail.overview"
       :updatedAt="caseStudy.projectDetail.launchDate"
     />
-      <vue-markdown class="case__content" html="true">{{ caseStudy.content }}</vue-markdown>
+      <vue-markdown class="case__content">{{ caseStudy.content }}</vue-markdown>
   </article>
 </template>
 
@@ -23,7 +23,7 @@ import ArticleMast from '../components/ArticleMast'
 export default {
   name: 'CaseStudy',
   data: () => ({
-    imgUrl: 'img/onemv_dispatch_feature.png'
+    imgUrl: '/img/onemv_dispatch_feature.png'
   }),
   apollo: {
     caseStudy: {
