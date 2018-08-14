@@ -99,4 +99,11 @@ export default {
     border:none;
     background-color:#efefef;
   }
+
+@media (max-width: 576px) {
+  .profile{
+    height:auto;
+    overflow: auto;
+  }
+}
 </style>

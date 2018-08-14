@@ -21,6 +21,7 @@ export default {
             max-height:300px;
             height:300px;
             background-size:cover;
+            background-position: center center;
             text-indent: -10000px;
     }
   }

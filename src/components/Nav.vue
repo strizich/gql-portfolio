@@ -1,9 +1,11 @@
 <template>
 <nav class="nav">
-  <ul class="nav__list">
-    <li class="nav__item" v-if="$route.path !== '/'">
-      <router-link to="/" class="nav__link" >Home</router-link>
+  <ul class="nav__list--left">
+    <li class="nav__item--back" v-if="$route.path !== '/'">
+      <router-link to="/" class="nav__link" >Back to home</router-link>
     </li>
+  </ul>
+  <ul class="nav__list--right">
     <li class="nav__item d-block d-sm-none">
       <router-link to="/sidebar" class="nav__link">Profile</router-link>
     </li>
@@ -21,34 +23,79 @@ export default {
 </script>
 
 <style lang="scss">
+
   .nav{
     list-style-type: none;
     position:fixed;
-    top:0;
+    top:8px;;
     right:0;
     width:100%;
     display:flex;
     justify-content: flex-end;
     z-index: 100;
+    align-content: center;
     &__item{
-      margin: 8px;
+      color:#fff;
+      margin-right:8px;
+      &:hover{
+        color:#fff!important;
+      }
     }
     &__list{
-      list-style-type: none;
+        &--left{
+          display:flex;
+          list-style-type: none;
+          margin-bottom:0;
+          padding:0;
+          margin-right:8px;
+        }
+        &--right{
+          @extend .nav__list--left;
+        }
     }
     &__link{
       display:block;
       width:100%;
-      background-color:#fff;
       color:#000;
+      background:#fff;
       padding:8px;
       transition:all .32s;
       font-size: 14px;
       border-radius: 3px;
+      &.router-link-exact-active{
+        color:#fff;
+        box-shadow: 0 4px 0 purple;
+        background: rgba(0,0,0,1);
+      }
     }
   }
-  .router-link-exact-active{
+
+@media (max-width: 576px) {
+.nav{
+  position: sticky;
+  position:-webkit-sticky;
+  top:0;
+  left:0;
+  width:100%;
+  background:#000;
+  color:#fff;
+  display:flex;
+  justify-content: space-between;
+  &__link{
+    display:block;
+    width:100%;
     color:#fff;
-    background-color: purple;
+    padding:8px;
+    transition:all .32s;
+    font-size: 14px;
+    background: transparent;
+  &.router-link-exact-active{
+      color:#fff;
+      box-shadow: 0 4px 0 purple;
+      background: rgba(255,255,255, .1);
+    }
+  }
+}
+
   }
 </style>
