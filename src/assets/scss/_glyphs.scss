@@ -1,0 +1,21 @@
+
+
+.glyph{
+    display:inline-block;
+    text-indent: -10000px;
+    background-size: contain;
+    @each $size, $value in $sizeList{
+      &__#{$size} {
+          width: $value;
+          height: $value;
+      }
+    }
+    @each $glyph in $glyphs{
+      &__#{$glyph} {
+          background: url(/img/glyph/#{$glyph}.svg) center center;  
+      }
+    }
+  }
+  .glyph ~ .text{
+      margin-left: 2px;
+  }

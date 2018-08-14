@@ -6,5 +6,9 @@ query($first: Int!, $skip: Int!){
     slug
     updatedAt
     featured
+    featuredImage{
+      url
+      id
+    }
   }
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>glyph/iphone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="glyph/iphone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M5,1 L11,1 C11.5522847,1 12,1.44771525 12,2 L12,14 C12,14.5522847 11.5522847,15 11,15 L5,15 C4.44771525,15 4,14.5522847 4,14 L4,2 C4,1.44771525 4.44771525,1 5,1 Z M5.42857143,2 C5.19187796,2 5,2.20663781 5,2.46153846 L5,13.5384615 C5,13.7933622 5.19187796,14 5.42857143,14 L10.5714286,14 C10.808122,14 11,13.7933622 11,13.5384615 L11,2.46153846 C11,2.20663781 10.808122,2 10.5714286,2 L5.42857143,2 Z" id="Combined-Shape" fill="#000000"></path>
+        <circle id="Oval-3" fill="#000000" cx="8" cy="13" r="1"></circle>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+
+@import '/variables';
+@import '/glyphs';
+@import '/fonts';
+
+main{
+  margin:0 auto;
+}
+body{
+  padding:0;
+  font-family: 'Product Sans';
+  background: #efefef;
+}
+.col{
+  width:33%;
+  padding:16px;
+}
+
+a:-webkit-any-link{
+  text-decoration: none;
+}

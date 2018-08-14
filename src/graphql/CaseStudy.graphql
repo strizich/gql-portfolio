@@ -1,6 +1,6 @@
 #import './CaseStudyDetails.graphql'
-query($id: ID!){ 
-  caseStudy(where: {id: $id}) {
+query($slug: String!){ 
+  caseStudy(where: {slug: $slug}) {
     id
     updatedAt
     createdAt
@@ -8,6 +8,10 @@ query($id: ID!){
     postType
     slug
     content
+    featuredImage{
+      url
+      id
+    }
     projectDetail{
       ...details
     }
