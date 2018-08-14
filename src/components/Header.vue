@@ -19,7 +19,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .logo{
     background: url("/img/logo.svg") no-repeat center center;
     width:70px;
@@ -27,21 +26,19 @@ export default {
     text-indent: -10000px;
     margin-top:8px;
 }
-
 header{
     display:flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 16px;
     position: sticky;
-    position:-webkit-sticky;
+    position: -webkit-sticky;
     top:0;
     left:0;
     width:100%;
     z-index: 100;
-    background:#fff;
+    background:#efefef;
 }
-
 nav{
     display:flex;
     align-items: center;

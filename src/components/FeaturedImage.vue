@@ -1,6 +1,6 @@
 <template>
-    <div class="case__image">
-        <img :src="caseImage"/>
+    <div class="case__image" :style="`background-image:url(${caseImage})`">
+      {{caseImage}}
     </div>
 </template>
 
@@ -16,10 +16,12 @@ export default {
    .case{
      &__image{
         text-align: center;
-        img{
-            width:100%;
+         width:100%;
             box-shadow: 0 -20px 20px -20px rgba(0,0,0,.3);
-        }
+            max-height:300px;
+            height:300px;
+            background-size:cover;
+            text-indent: -10000px;
     }
   }
 </style>

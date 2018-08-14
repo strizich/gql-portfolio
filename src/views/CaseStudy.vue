@@ -1,15 +1,20 @@
 <template>
-  <article class="case">
+<div class="cases">
+  <article class="case" v-if="caseStudy">
     <article-mast
       :title="caseStudy.title"
       :postType="caseStudy.postType"
-      :caseImage="imgUrl"
+      :caseImage="caseStudy.featuredImage.url"
       :role="caseStudy.projectDetail.role"
       :overview="caseStudy.projectDetail.overview"
       :updatedAt="caseStudy.projectDetail.launchDate"
     />
+    <div class="case__wrapper">
       <vue-markdown class="case__content">{{ caseStudy.content }}</vue-markdown>
+    </div>
   </article>
+  <loading v-else/>
+</div>
 </template>
 
 <script>
@@ -22,15 +27,13 @@ import ArticleMast from '../components/ArticleMast'
 
 export default {
   name: 'CaseStudy',
-  data: () => ({
-    imgUrl: '/img/onemv_dispatch_feature.png'
-  }),
+  url: '',
   apollo: {
     caseStudy: {
       query: caseStudy,
       variables () {
         return {
-          id: this.$route.params.slug
+          slug: this.$route.params.slug
         }
       }
     }
@@ -41,26 +44,38 @@ export default {
 
 <style lang="scss">
 .case{
+  &__wrapper{
+    padding-top:64px;
+    max-width: 1024px;
+    margin:0 auto;
+  }
   &__content{
-      max-width:1024px;
-      width:100%;
-      z-index: 1;
-      position: relative;
-      padding: 0 120px;
-      margin: 64px auto;
-      h1, h2, h3, h4{
-        margin-bottom:16px;
+    width:100%;
+    z-index: 1;
+    position: relative;
+    padding:0 16px;
+    h1, h2, h3, h4{
+      margin-bottom:16px;
+    }
+    p{
+      line-height: 1.5;
+      letter-spacing: .75px;
+    }
+    ul{
+      padding-left: 16px;
+      li{
+        margin: 8px;
       }
-      p{
-        line-height: 1.5;
-        letter-spacing: .75px;
-      }
-      ul{
-        padding-left: 16px;
-        li{
-          margin: 8px;
-        }
-      }
+    }
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: all .23s;
+  }
+  .fade-enter-active {
+    transition-delay: .23s;
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0;
   }
 }
 </style>

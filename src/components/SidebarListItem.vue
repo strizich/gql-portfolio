@@ -27,8 +27,10 @@ export default {
     }
   }
   &__content{
-    font-size: 11px;
+    font-size: 13px;
     margin-left: 8px;
+    font-weight: 300;
+    letter-spacing: 0.2px;
   }
 }
 </style>

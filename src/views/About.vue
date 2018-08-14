@@ -1,6 +1,5 @@
 <template>
   <div class="about">
-
     <p>{{description}}</p>
   </div>
 </template>
