@@ -3,7 +3,7 @@
     <!-- <img class="profile__img" :src="avatar"/> -->
     <div class="profile__info">
       <h2 class="profile__name">{{about.firstName}} {{about.lastName}}</h2>
-      <p class="text__title">{{about.title}}</p>
+      <p class="profile__title">{{about.title}}</p>
     </div>
     <div class="profile__contact">
       <list-item icon="email" size="md">{{about.email}}</list-item>
@@ -66,15 +66,19 @@ export default {
     box-shadow: 1px 0 0 rgba(0,0,0,.1);
     &__name{
       padding-bottom: 0;
+      font-size: 24px;
+      margin-bottom:0;
+    }
+    &__title{
+      color: rgba(0,0,0,.75);
+      margin-bottom: 0;
     }
     &__info{
-      padding: 8px 16px;
+      padding: 16px;
     }
     &__contact{
-      padding: 0 16px ;
-    }
-    &__stats{
-      margin-top: 16px;
+      padding: 16px ;
+      border-bottom: 1px solid rgba(0,0,0,.1);
     }
   }
   .slide-enter, .slide-leave-to {

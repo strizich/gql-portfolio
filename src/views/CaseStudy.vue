@@ -7,8 +7,7 @@
       :caseImage="caseStudy.featuredImage.url"
       :role="caseStudy.projectDetail.role"
       :overview="caseStudy.projectDetail.overview"
-      :updatedAt="caseStudy.projectDetail.launchDate"
-    />
+      :updatedAt="caseStudy.projectDetail.launchDate"/>
     <div class="case__wrapper">
       <vue-markdown class="case__content">{{ caseStudy.content }}</vue-markdown>
     </div>
@@ -18,12 +17,14 @@
 </template>
 
 <script>
-// import gql from 'graphql-tag'
-import Loading from '../components/Loading.vue'
-import VueMarkdown from 'vue-markdown'
+// Case Study Query
 import caseStudy from '@/graphql/CaseStudy.graphql'
-import FeaturedImage from '../components/FeaturedImage'
-import ArticleMast from '../components/ArticleMast'
+
+import VueMarkdown from 'vue-markdown'
+// Components
+import Loading from '@/components/Loading.vue'
+import FeaturedImage from '@/components/FeaturedImage'
+import ArticleMast from '@/components/ArticleMast'
 
 export default {
   name: 'CaseStudy',
@@ -68,14 +69,21 @@ export default {
       }
     }
   }
-  .fade-enter-active, .fade-leave-active {
-    transition: all .23s;
-  }
-  .fade-enter-active {
-    transition-delay: .23s;
-  }
-  .fade-enter, .fade-leave-active {
-    opacity: 0;
-  }
 }
+  .fade{
+    &-enter{
+      opacity: 0;
+      &-active{
+        transition: all .23s;
+        transition-delay: .23s;
+      }
+    }
+    &-leave{
+      &-active{
+      transition: all .23s;
+        opacity: 0;
+      }
+    }
+  }
+
 </style>
