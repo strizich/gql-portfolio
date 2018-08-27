@@ -48,19 +48,15 @@ export default {
           targets: '#anim__logo .strizich .path',
           strokeDashoffset: [anime.setDashoffset, 0],
           stroke: '#9013FE',
+          strokeWidth: '0.5',
           delay: 1500,
-          duration: 1000,
+          duration: 2000,
           easing: 'linear'
         })
         .add({
           targets: '#anim__logo .strizich .fill',
           duration: 1500,
           fill: '#9013FE'
-        })
-        .add({
-          targets: '#anim__logo .strizich .path',
-          opacity: 0,
-          offset: '-=1000'
         })
         .add({
           targets: '#anim__logo .design .path.dot',
@@ -79,6 +75,12 @@ export default {
           offset: '-=500',
           fill: '#ffffff',
           delay: function (el, i) { return i * 150 }
+        })
+        .add({
+          targets: '#anim__lead',
+          opacity: 1,
+          offset: '-=500',
+          top: [{value: '30'}]
         })
     }
   },
@@ -125,16 +127,6 @@ export default {
 }
 .anim__logo{
   position: relative;
-}
-.box{
-  width:4px;
-  height:4px;
-  background-color:red;
-  position:absolute;
-  left:0;
-  top:25%;
-  margin-top: -.5px;
-  margin-left: -2px;
 }
 
 @media (max-width: 576px) {
