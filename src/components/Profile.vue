@@ -4,31 +4,34 @@
     <div class="profile__info">
       <h2 class="profile__name">{{about.firstName}} {{about.lastName}}</h2>
       <p class="profile__title">{{about.title}}</p>
-    </div>
-    <div class="profile__contact">
       <list-item icon="email" size="md">{{about.email}}</list-item>
       <list-item icon="iphone" size="md">{{about.phone}}</list-item>
     </div>
-    <transition-group name="slide" tag="div" class="profile__stats">
-      <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
-        :name="skill.id"
-        :x="skill.rating"
-        :delay="delay * index">
-        {{skill.name}}
-      </stat-bar>
-    </transition-group>
+    <div class="profile__stats container-fluid">
+      <div class="row">
+        <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
+          :name="skill.id"
+          :x="skill.rating"
+          :description="skill.description"
+          :delay="delay * index"
+          class="col-md-3 col-sm-6">
+          {{skill.name}}
+        </stat-bar>
+      </div>
+    </div>
+
     <!-- v-if="skill.featured || isShown" -->
     <!-- <button v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
     </div>
 </template>
 
 <script>
-import ListItem from '../components/SidebarListItem.vue'
-import StatBar from '../components/SidebarStatBar.vue'
-import about from '@/graphql/Sidebar.graphql'
+import ListItem from '@/components/SidebarListItem.vue'
+import StatBar from '@/components/SidebarStatBar.vue'
+import about from '@/graphql/Profile.graphql'
 
 export default {
-  name: 'Sidebar',
+  name: 'Profile',
   showMore: false,
   index: '',
   data: () => ({
@@ -57,13 +60,13 @@ export default {
 
 <style lang="scss">
   .profile {
-    top: 0;
-    left: 0;
-    height: 100vh;
     overflow-x: hidden;
     color: #000;
     background:#fff;
     box-shadow: 1px 0 0 rgba(0,0,0,.1);
+    display:flex;
+    padding:64px 0 32px;
+    justify-content: space-between;
     &__name{
       padding-bottom: 0;
       font-size: 24px;
@@ -75,10 +78,10 @@ export default {
     }
     &__info{
       padding: 16px;
+      flex-shrink: 0;
     }
-    &__contact{
-      padding: 16px ;
-      border-bottom: 1px solid rgba(0,0,0,.1);
+    &__stat{
+      width:100%;
     }
   }
   .slide-enter, .slide-leave-to {

@@ -1,113 +1,95 @@
 <template>
   <div class="home">
-    <div class="intro">
-        <h1 class="headline">
-          <span>Hello, I am a </span>
-          <span class="scroller__container">
-            <i class="anim">UI / UX Designer</i>
-            <span> and </span> <i class="anim">developer</i>
-          </span> <span> and I create </span> <i class="anim">apps</i> and <i class="anim">websites.</i>
-        </h1>
-        <p class="lead"></p>
-    </div>
-    <div class="container-fluid">
- <div class="cards">
-      <h3 class="cards__section">Samples</h3>
-      <div class="row no-gutters">
-        <div class="col-3" v-for="asset in assets" v-bind:key="asset.id">
-          <span class="img" :style="`background-image:url(${asset.url})`"/>
-        </div>
-        <div class="col-3" v-for="asset in assets" v-bind:key="asset.id">
-          <span class="img" :style="`background-image:url(${asset.url})`"/>
+    <home-intro/>
+    <div class="container-fluid" >
+      <div class="samples container">
+        <div class="sample" v-for="sample in samples" v-bind:key="sample.id">
+          <div v-for="image in sample" v-bind:key="image.id" v-if="image.url" class="sample__image" :style="`background-image: url(${image.url});`"></div>
         </div>
       </div>
     </div>
-    <div class="cards" v-if="caseStudies">
-      <h3 class="cards__section">Case Studies</h3>
-        <div class="cards__group row">
-          <article-card v-bind="caseStudy" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.slug" class="col-sm-12 col-md-6 col-lg-4"/>
-        </div>
+    <div class="container-fluid" v-if="caseStudies">
+      <div class="cards container">
+        <h5 class="cards__section">Case Studies</h5>
+          <div class="cards__group row">
+            <article-card v-bind="caseStudy" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.slug" class="col-sm-12 col-md-6 col-lg-4" />
+          </div>
+      </div>
     </div>
-    <loading v-else/>
-    </div>
+
+    <loading v-else />
   </div>
 </template>
 
 <script>
-import assets from '@/graphql/Samples.graphql'
+import HomeIntro from '@/components/HomeIntro.vue'
+import samples from '@/graphql/Samples.graphql'
 import caseStudies from '@/graphql/CaseStudies.graphql'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
-import anime from 'animejs'
+import VueGallery from 'vue-gallery'
+
 export default {
   name: 'home',
   loading: false,
   data: () => ({
     loading: 0,
-    postCount: null,
-    imgUrl: 'img/onemv_dispatch_feature.png'
+    samples: {},
+    imageUrls: [],
+    i: 0,
+    index: null,
+    url: null
   }),
   apollo: {
     $loadingKey: 'loading',
     caseStudies: {
-      // graphql/CaseStudies.graphql
       query: caseStudies,
       variables: {
         first: 6,
         skip: 0
       }
     },
-    assets: {
-      query: assets
+    samples: {
+      query: samples
     }
   },
-  components: { Loading, ArticleCard },
+  components: { Loading, ArticleCard, VueGallery, HomeIntro },
   methods: {
-    animateIntro: function () {
-      let offsetScroller = anime.timeline({
-        targets: '.anim',
-        delay: function (el, i) { return i * 100 },
-        duration: 1000,
-        elasticity: 300,
-        loop: false
-      })
-      offsetScroller
-        .add({
-          top: [
-            { value: 32 },
-            { value: 0 }
-          ],
-          opacity: [
-            { value: 0 },
-            { value: 1 }
-          ]
-        })
+    getImages: function () {
+      for (let i = 0; i < this.samples.length; i++) {
+        const sampleGroup = this.samples[i].images
+        for (let j = 0; j < sampleGroup.length; j++) {
+          const sampleImage = this.samples[i].images[j].url
+          this.imageUrls.push(sampleImage)
+        }
+      }
+      return this.imageUrls
     }
   },
   mounted () {
-    this.animateIntro()
+    this.getImages()
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .img{
-    display:block;
-    width: 100%;
-    height: 300px;
-    background-size:cover;
-    background-position:center center;
+  .samples{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
   }
-  .intro{
-    background:#fff;
-    color:#000;
-    padding:64px 72px;
-    font-size: 27px;
-
+  .sample{
+    &__image{
+      width: 130px;
+      height:130px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left center;
+      margin:16px;
+    }
   }
   .cards{
     margin:0 auto;
-
     &__group{
       display:flex;
     }
@@ -116,20 +98,4 @@ export default {
       margin-top:64px;
     }
   }
-  .headline{
-    font-weight: 100;
-  }
-  .anim{
-    opacity: 0;
-    width:auto;
-    position:relative;
-    font-weight:300;
-    color:#9013FE;
-  }
-
-@media (max-width: 576px) {
-  .intro{
-    padding:62px 16px;
-  }
-}
 </style>

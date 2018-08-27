@@ -1,6 +1,10 @@
 {
-  assets{
-    url
+  samples {
+    title
     id
+    images(where: {category: Screengrab}) {
+      url
+      id
+    }
   }
 }

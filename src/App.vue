@@ -2,26 +2,23 @@
 <div id="app">
   <!-- <PageHeader/> -->
   <div class="app__wrapper">
-    <header class="d-none d-sm-block">
-      <sidebar/>
-    </header>
-
     <main>
       <app-nav/>
       <transition name="fade" appear mode="out-in">
         <router-view/>
       </transition>
+      <app-footer/>
     </main>
   </div>
 </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar.vue'
 import AppNav from './components/Nav.vue'
+import AppFooter from './components/Footer.vue'
 export default {
   name: 'app',
-  components: { Sidebar, AppNav }
+  components: { AppNav, AppFooter }
 }
 </script>
 

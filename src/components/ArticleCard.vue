@@ -55,7 +55,7 @@ export default {
       z-index: 1;
       width:100%;
       position: relative;
-      margin: 34px 0;
+      margin-bottom:16px;
       &__wrapper{
         box-shadow: 0 20px 20px -10px rgba(0,0,0,.15), 0 20px 15px -20px rgba(0,0,0,.25);
       }

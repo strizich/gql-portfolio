@@ -1,14 +1,11 @@
 <template>
-  <div :id="name" class="bar__wrapper">
-    <div class="bar__title">
-      <slot></slot>
-    </div>
+  <div :id="name" class="bar__wrapper" v-b-tooltip.hover.top="`${description}`" variant="primary">
     <div class="bar__container">
       <span class="bar__fill"></span>
       <span class="bar__line"></span>
     </div>
     <div class="bar__value">
-      <span>{{ x }} / 100</span>
+      <strong><slot></slot></strong> <span>{{ x }} / 100</span>
     </div>
   </div>
 </template>
@@ -30,7 +27,7 @@ export default {
         ],
         scaleY: [
           { value: 1, delay: this.delay },
-          { value: 2.5, duration: 400, elasticity: 100 }
+          { value: 1.5, duration: 400, elasticity: 100 }
         ],
         loop: false
       })
@@ -40,6 +37,10 @@ export default {
         targets: '#' + this.name + ' ' + '.bar__line',
         width: [
           { value: this.x + '%', duration: this.duration, delay: this.delay, elasticity: 100 }
+        ],
+        backgroundPosition: [
+          {value: '100vh'},
+          {value: 200}
         ]
       })
     }
@@ -49,7 +50,7 @@ export default {
     this.line()
   },
   props: [
-    'x', 'delay', 'name'
+    'x', 'delay', 'name', 'description'
   ]
 }
 </script>
@@ -60,9 +61,12 @@ export default {
       position: relative;
       padding:8px 16px;
       border-bottom:1px solid rgba(0,0,0,.1);
+      transition: background .23s;
+      &:hover{
+        background-color:#efefef;
+      }
     }
     &__title{
-      font-family: 'Roboto';
       font-size:14px;
       margin-bottom:4px;
       font-weight: 500;
@@ -84,9 +88,13 @@ export default {
       width:4px;
       height:4px;
       background-image: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+
     }
     &__value{
       font-size: 11px;
+      display:flex;
+      justify-content: space-between;
+      padding-top: 4px;
     }
   }
 </style>
