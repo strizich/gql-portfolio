@@ -6,9 +6,6 @@
     </li>
   </ul>
   <ul class="nav__list--right">
-    <li class="nav__item d-block d-sm-none">
-      <router-link to="/sidebar" class="nav__link">Profile</router-link>
-    </li>
     <li class="nav__item">
       <router-link to="/about" class="nav__link">About</router-link>
     </li>

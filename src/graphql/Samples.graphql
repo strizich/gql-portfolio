@@ -1,10 +1,10 @@
-{
-  samples {
+query($category: AssetGroup, $ID: ID, $first: Int, $skip: Int){
+  samples (first: $first, skip: $skip){
     title
     id
-    images(where: {category: Screengrab}) {
-      url
+    images(where: {category: $category, id: $ID}) {
       id
+      url
     }
   }
 }

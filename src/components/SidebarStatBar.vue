@@ -37,10 +37,6 @@ export default {
         targets: '#' + this.name + ' ' + '.bar__line',
         width: [
           { value: this.x + '%', duration: this.duration, delay: this.delay, elasticity: 100 }
-        ],
-        backgroundPosition: [
-          {value: '100vh'},
-          {value: 200}
         ]
       })
     }
