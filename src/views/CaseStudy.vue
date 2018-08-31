@@ -7,7 +7,8 @@
       :caseImage="caseStudy.featuredImage.url"
       :role="caseStudy.projectDetail.role"
       :overview="caseStudy.projectDetail.overview"
-      :updatedAt="caseStudy.projectDetail.launchDate"/>
+      :updatedAt="caseStudy.projectDetail.launchDate"
+      :backgroundColor="caseStudy.projectDetail.backgroundColor"/>
     <div class="case__wrapper">
       <vue-markdown class="case__content">{{ caseStudy.content }}</vue-markdown>
     </div>

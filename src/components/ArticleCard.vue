@@ -56,7 +56,6 @@ export default {
       position: relative;
 
       &__wrapper{
-        box-shadow: 0 20px 20px -10px rgba(0,0,0,.15), 0 20px 15px -20px rgba(0,0,0,.25);
         &:hover{
           .article-card__info{
             opacity:1;
@@ -82,5 +81,12 @@ export default {
         width:100%;
         height:100%;
       }
+  }
+
+  @media (max-width: 576px) {
+    .article-card__info{
+      opacity:1;
+      position:static;
+    }
   }
 </style>

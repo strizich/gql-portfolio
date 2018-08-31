@@ -2,7 +2,7 @@
   <div class="intro">
     <div class="intro__group">
        <p class="intro__lead"><span>I'm Jason Strizich</span></p>
-       <p class="intro__text">a <span class="tooltip__note" title="What is a fullstack designer?" v-b-popover.hover.bottom="'A full stack designer is a description of a cross-disciplinary designer who is skill in wireframe/prototype design (UX), visual design (UI), and the front coding, HTML / CSS / JS.'">full-stack designer.*</span> based in Dallas, Tx</p>
+       <p class="intro__text">a <span class="tooltip__note" title="What is a fullstack designer?" v-b-popover.hover.bottom="'A full stack designer is a description of a cross-disciplinary designer who is skill in wireframe/prototype design (UX), visual design (UI), and the front coding, HTML / CSS / JS.'">full-stack designer*</span> based in Dallas, Tx</p>
        <p class="intro__text intro__text--sm"><i>I design useable products for the people that use them.</i></p>
     </div>
   </div>

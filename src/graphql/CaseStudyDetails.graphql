@@ -3,4 +3,5 @@ fragment details on ProjectDetail{
   launchDate
   overview
   role
+  backgroundColor
 }

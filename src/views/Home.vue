@@ -82,6 +82,8 @@ export default {
     &__section{
       margin-bottom: 16px;
       margin-top:64px;
+      font-weight:300;
+      font-size:24px;
     }
   }
 </style>

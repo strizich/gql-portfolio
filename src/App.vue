@@ -4,9 +4,9 @@
   <div class="app__wrapper">
     <main>
       <app-nav/>
-      <transition name="fade" appear mode="out-in">
+      <!-- <transition name="fade" appear mode="out-in"> -->
         <router-view/>
-      </transition>
+      <!-- </transition> -->
     </main>
   </div>
       <app-footer/>
@@ -51,6 +51,7 @@ header{
   transition-delay: .23s;
 }
 .fade-enter, .fade-leave-active {
-  opacity: 0
+  opacity: 0;
+  transform: scale(0.9);
 }
 </style>
