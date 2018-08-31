@@ -2,7 +2,7 @@
   <router-link :to="`/case/${slug}`">
     <div class="article-card">
       <div class="article-card__wrapper">
-        <div class="article-card__image" v-if="featuredImage" :style="`background-image: url(${featuredImage.url});`"></div>
+        <img class="article-card__image" v-if="featuredImage" :src="featuredImage.url"/>
         <div class="article-card__info">
           <div class="article-card__info--left">
             <h2 class="text__title">{{title}}</h2>
@@ -53,23 +53,34 @@ export default {
   }
   .article-card{
       z-index: 1;
-      width:100%;
       position: relative;
-      margin-bottom:16px;
+
       &__wrapper{
         box-shadow: 0 20px 20px -10px rgba(0,0,0,.15), 0 20px 15px -20px rgba(0,0,0,.25);
+        &:hover{
+          .article-card__info{
+            opacity:1;
+            background: rgba(255,255,255, .75);
+          }
+        }
       }
       &__info{
         display:flex;
         justify-content: space-between;
+        align-items: center;
         padding: 16px;
         background: #fff;
+        opacity:0;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        transition: all .3s;
       }
       &__image{
         width:100%;
-        height:300px;
-        background-size: cover;
-        background-position: center center;
+        height:100%;
       }
   }
 </style>

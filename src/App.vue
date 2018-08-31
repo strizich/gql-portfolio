@@ -7,9 +7,9 @@
       <transition name="fade" appear mode="out-in">
         <router-view/>
       </transition>
-      <app-footer/>
     </main>
   </div>
+      <app-footer/>
 </div>
 </template>
 
@@ -30,11 +30,12 @@ export default {
 
 main{
   width:100%;
+  min-height:100vh;
 }
 
 header{
   min-width:200px;
-  background:#fff;
+  background: #fff;
   height:100vh;
   position: sticky;
   position: -webkit-sticky;

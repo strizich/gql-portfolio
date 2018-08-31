@@ -29,6 +29,13 @@ const apolloProvider = new VueApollo({
     $loadingKey: 'loading'
   }
 })
+// Sets the title of the page to the value defined in the router.js meta field
+router.beforeEach((to, from, next) => {
+  console.log(to)
+  document.title = to.meta.title
+  document.description = to.meta.description
+  next()
+})
 
 Vue.use(VueApollo)
 Vue.use(BootstrapVue)

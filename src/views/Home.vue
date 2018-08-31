@@ -1,23 +1,12 @@
 <template>
   <div class="home">
     <home-intro/>
-    <div class="container-fluid" >
-      <div class="samples container">
-        <div class="sample__group" v-for="sample in samples" v-bind:key="sample.id">
-          <div class="sample__title">
-            {{sample.title}}
-          </div>
-          <div class="sample__images">
-            <div v-for="image in sample.images" v-bind:key="image.id" v-if="image.url" class="sample__image" :style="`background-image: url(${image.url});`"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="container-fluid" v-if="caseStudies">
       <div class="cards container">
         <h5 class="cards__section">Case Studies</h5>
-          <div class="cards__group row">
-            <article-card v-bind="caseStudy" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.slug" class="col-sm-12 col-md-6 col-lg-4" />
+          <div class="cards__group row no-gutters">
+            <article-card v-bind="caseStudy" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.slug" class="col-md-6 col-xs-12"/>
           </div>
       </div>
     </div>
@@ -28,7 +17,6 @@
 
 <script>
 import HomeIntro from '@/components/HomeIntro.vue'
-import samples from '@/graphql/Samples.graphql'
 import caseStudies from '@/graphql/CaseStudies.graphql'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
@@ -47,14 +35,6 @@ export default {
       query: caseStudies,
       variables: {
         first: 6,
-        skip: 0
-      }
-    },
-    samples: {
-      query: samples,
-      variables: {
-        category: 'Screengrab',
-        first: 12,
         skip: 0
       }
     }
@@ -79,13 +59,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .samples{
-
-  }
   .sample{
-    &__group{
-
-    }
     &__images{
       display:flex;
       flex-wrap: wrap;

@@ -8,7 +8,7 @@
         <featured-image :caseImage="caseImage"/>
         <div class="case__details">
           <div class="row">
-            <div class="col-sm-12 col-md-4">
+            <div class="col-sm-12 col-md-8">
               <h4 class="text__label">Overview</h4>
               <p class="text">{{overview}}</p>
             </div>
@@ -17,10 +17,8 @@
               <ul class="text__list">
                 <li class="text" v-for="myRole in role" v-bind:key="myRole">{{myRole}}</li>
               </ul>
-            </div>
-            <div class="col-sm-12 col-md-4">
               <h4 class="text__label">Launch Date</h4>
-              <p class="text__large">{{updatedAt | moment("MMM YYYY")}}</p>
+              <p class="text">{{updatedAt | moment("MMM YYYY")}}</p>
             </div>
           </div>
         </div>
@@ -50,25 +48,28 @@ export default {
   padding:8px;
 }
 .text{
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   line-height:1.3;
   letter-spacing: .75px;
   &__headline{
+    color: #6D6D72;
     font-size: 36px;
     margin-bottom:0;
     font-weight: 300;
   }
   &__large{
-    font-size: 42px;
+    font-size: 28px;
     font-weight: 100;
   }
   &__lead{
-    font-size: 18px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight:500;
   }
   &__label{
-    font-size: 11px;
-    font-weight: 300;
+    font-size: 14px;
+    font-weight: 100;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom:8px;
@@ -93,6 +94,7 @@ export default {
   &__mast{
     padding-bottom: 32px;
     position: relative;
+
     &:before{
       background:#000;
       position:absolute;
@@ -105,11 +107,10 @@ export default {
       z-index: 0;
     }
     &__header{
-      margin-top: 32px;
       max-width: 1024px;
       width: 100%;
-      margin: 32px auto 0;
-      padding: 32px 16px;
+      margin: 16px auto 0;
+      padding: 0 16px;
     }
     &__content{
       max-width:1024px;

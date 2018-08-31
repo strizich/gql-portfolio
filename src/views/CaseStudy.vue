@@ -46,7 +46,7 @@ export default {
 <style lang="scss">
 .case{
   &__wrapper{
-    padding-top:64px;
+    padding-top:32px;
     max-width: 1024px;
     margin:0 auto;
   }
