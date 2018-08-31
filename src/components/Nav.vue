@@ -16,7 +16,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
   .logo{
     background: url(/img/logo.svg);
     text-indent: -10000px;
@@ -31,7 +30,7 @@ export default {
     right:0;
     width:100%;
     display:flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     z-index: 100;
     align-content: center;
     padding-top:32px;
