@@ -1,8 +1,8 @@
 <template>
-  <router-link :to="`/case/${slug}`">
+  <router-link :to="`/post/${slug}`">
     <div class="article-card">
       <div class="article-card__wrapper">
-        <img class="article-card__image" v-if="featuredImage" :src="featuredImage.url"/>
+        <img class="article-card__image" v-if="featuredImage.url" :src="featuredImage.url"/>
         <div class="article-card__info">
           <div class="article-card__info--left">
             <h2 class="text__title">{{title}}</h2>

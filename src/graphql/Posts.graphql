@@ -1,5 +1,5 @@
 query($first: Int!, $skip: Int!){ 
-  caseStudies(first: $first, skip: $skip){
+  posts(first: $first, skip: $skip){
     id
     title
     postType

@@ -56,7 +56,7 @@ export default {
   color: #fff;
   padding: 64px 72px;
   font-size: 27px;
-  min-height: 45vh;
+  height: 50vh;
   width: 100%;
   display: flex;
   &__group{

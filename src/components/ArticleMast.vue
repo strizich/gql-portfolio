@@ -7,7 +7,7 @@
       <div class="case__mast__wrapper container-fluid">
          <div class="case__mast__content">
         <!-- <featured-image :caseImage="caseImage"/> -->
-        <img class="case__image" :src="caseImage"/>
+        <img class="case__image" v-if="introImage" :src="introImage.url"/>
         <div class="case__details">
           <h4 class="case__label">Overview</h4>
           <p class="case__text">{{overview}}</p>
@@ -29,7 +29,7 @@ export default {
   name: 'ArticleMast',
   props: [
     'postType',
-    'caseImage',
+    'introImage',
     'title',
     'role',
     'overview',

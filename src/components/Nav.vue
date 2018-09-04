@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
   .logo{
     background: url(/img/logo.svg);
     text-indent: -10000px;
@@ -34,8 +35,9 @@ export default {
     z-index: 100;
     align-content: center;
     padding-top:38px;
-    background-color: #fff;
-
+    background-color: rgba(255,255,255,.75);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 1px 0 rgba(0,0,0,.05);
     &__item{
       color:#fff;
       margin-right:8px;
@@ -63,14 +65,12 @@ export default {
       padding:8px;
       transition:all .32s;
       font-size: 14px;
-      border-radius: 3px;
-      &.router-link-exact-active{
-        color: #fff;
-        background: rgba(0,0,0,1);
+       &.router-link-exact-active, &.router-link-active{
+        background-color: rgba(0,0,0, .1);
+        text-align: center;
       }
     }
   }
-
 @media (max-width: 576px) {
 .logo{
   position:absolute;
@@ -87,18 +87,19 @@ export default {
     display:block;
     width:100%;
     color:#fff;
-    padding:8px;
+    padding:8px 4px;
     margin:8px 16px;
     transition:all .32s;
     font-size: 14px;
     background: transparent;
-  &.router-link-exact-active{
+    &.router-link-exact-active, &.router-link-active{
       color:#fff;
       box-shadow: 0 4px 0 purple;
-      background: rgba(255,255,255, .1);
+      background-color: rgba(255,255,255, .1);
+      text-align: center;
+      padding: 8px 4px;
     }
   }
 }
-
-  }
+}
 </style>

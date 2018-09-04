@@ -1,5 +1,5 @@
 <template>
-  <div class="profile" v-if="about">
+  <div class="profile">
     <!-- <img class="profile__img" :src="avatar"/> -->
     <div class="profile__info">
       <h2 class="profile__name">{{about.firstName}} {{about.lastName}}</h2>
@@ -7,7 +7,7 @@
       <list-item icon="email" size="md">{{about.email}}</list-item>
       <list-item icon="iphone" size="md">{{about.phone}}</list-item>
     </div>
-    <div class="profile__stats container-fluid">
+    <div class="profile__stats container-fluid" :class="{'mobile__show':isShown}">
       <div class="row">
         <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
           :name="skill.id"
@@ -18,10 +18,8 @@
           {{skill.name}}
         </stat-bar>
       </div>
+      <button class="mobile__details" v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button>
     </div>
-
-    <!-- v-if="skill.featured || isShown" -->
-    <!-- <button v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
     </div>
 </template>
 
@@ -59,6 +57,13 @@ export default {
 </script>
 
 <style lang="scss">
+  .mobile__details{
+    width:100%;
+    display:none;
+  }
+  .mobile__show{
+    display:none;
+  }
   .profile {
     overflow-x: hidden;
     color: #000;
@@ -111,6 +116,15 @@ export default {
   .profile{
     height:auto;
     overflow: auto;
+    display:block;
+  }
+  .mobile{
+    &__details{
+      display:block;
+    }
+    &__show{
+      display:block;
+    }
   }
 }
 </style>

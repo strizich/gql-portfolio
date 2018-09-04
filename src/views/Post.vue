@@ -1,16 +1,16 @@
 <template>
 <div class="cases">
-  <article class="case" v-if="caseStudy">
+  <article class="case" v-if="post">
     <article-mast
-      :title="caseStudy.title"
-      :postType="caseStudy.postType"
-      :caseImage="caseStudy.featuredImage.url"
-      :role="caseStudy.projectDetail.role"
-      :overview="caseStudy.projectDetail.overview"
-      :updatedAt="caseStudy.projectDetail.launchDate"
-      :backgroundColor="caseStudy.projectDetail.backgroundColor"/>
+      :title="post.title"
+      :postType="post.postType"
+      :introImage="post.introImage"
+      :role="post.projectDetail.role"
+      :overview="post.projectDetail.overview"
+      :updatedAt="post.projectDetail.launchDate"
+      :backgroundColor="post.projectDetail.backgroundColor"/>
     <div class="case__wrapper">
-      <vue-markdown class="case__content">{{ caseStudy.content }}</vue-markdown>
+        <vue-markdown class="case__content" :source="post.content"/>
     </div>
   </article>
   <loading v-else/>
@@ -19,7 +19,7 @@
 
 <script>
 // Case Study Query
-import caseStudy from '@/graphql/CaseStudy.graphql'
+import Post from '@/graphql/Post.graphql'
 
 import VueMarkdown from 'vue-markdown'
 // Components
@@ -28,11 +28,11 @@ import FeaturedImage from '@/components/FeaturedImage'
 import ArticleMast from '@/components/ArticleMast'
 
 export default {
-  name: 'CaseStudy',
+  name: 'Post',
   url: '',
   apollo: {
-    caseStudy: {
-      query: caseStudy,
+    post: {
+      query: Post,
       variables () {
         return {
           slug: this.$route.params.slug
@@ -40,7 +40,7 @@ export default {
       }
     }
   },
-  components: { VueMarkdown, Loading, FeaturedImage, ArticleMast }
+  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown }
 }
 </script>
 
@@ -53,6 +53,8 @@ export default {
   }
   &__content{
     width:100%;
+    max-width: 768px;
+    margin: 0 auto;
     z-index: 1;
     position: relative;
     padding:0 16px;
@@ -67,7 +69,14 @@ export default {
       padding-left: 16px;
       li{
         margin: 8px;
+        font-size: 16px;
       }
+    }
+    img{
+      max-width: 486px;
+      width:100%;
+      margin: 0 auto;
+      display: inline-block;
     }
   }
 }

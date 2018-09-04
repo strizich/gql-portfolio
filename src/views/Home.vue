@@ -2,11 +2,11 @@
   <div class="home">
     <home-intro/>
 
-    <div class="container-fluid" v-if="caseStudies">
+    <div class="container-fluid" v-if="posts">
       <div class="cards container">
         <h5 class="cards__section">Case Studies</h5>
           <div class="cards__group row no-gutters">
-            <article-card v-bind="caseStudy" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.slug" class="col-md-6 col-xs-12"/>
+            <article-card v-bind="article" v-for="article in posts" v-bind:key="article.slug" class="col-md-6 col-xs-12"/>
           </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
 
 <script>
 import HomeIntro from '@/components/HomeIntro.vue'
-import caseStudies from '@/graphql/CaseStudies.graphql'
+import Posts from '@/graphql/Posts.graphql'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
 import VueGallery from 'vue-gallery'
@@ -31,8 +31,8 @@ export default {
   }),
   apollo: {
     $loadingKey: 'loading',
-    caseStudies: {
-      query: caseStudies,
+    posts: {
+      query: Posts,
       variables: {
         first: 6,
         skip: 0

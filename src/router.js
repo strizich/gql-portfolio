@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
-import CaseStudy from './views/CaseStudy.vue'
+import Post from './views/Post.vue'
 
 Vue.use(Router)
 export default new Router({
@@ -14,13 +14,13 @@ export default new Router({
       component: Home,
       meta: {
         title: 'strizich.design | home',
-        desciption: 'My personal code playgroup and design portfolio.'
+        desciption: 'My personal code playground and design portfolio.'
       }
     },
     {
-      path: '/case/:slug',
-      name: 'case',
-      component: CaseStudy,
+      path: '/post/:slug',
+      name: 'post',
+      component: Post,
       meta: {
         title: 'strizich.design | case study',
         description: 'A thing that I have worked on.'
