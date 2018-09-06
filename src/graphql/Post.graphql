@@ -9,7 +9,7 @@ query($slug: String!){
     slug
     content
     introImage{
-      url
+      handle
       id
     }
     projectDetail{

@@ -3,6 +3,7 @@ import Vue2Filters from 'vue2-filters'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VuePrism from 'vue-prism'
 import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -12,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/scss/global.scss'
 import './registerServiceWorker'
-
+import 'prismjs/themes/prism.css'
 const httpLink = new HttpLink({
   uri: 'https://api-useast.graphcms.com/v1/cjk4io64p001h01gmk8nchuzs/master'
 })
@@ -29,6 +30,7 @@ const apolloProvider = new VueApollo({
     $loadingKey: 'loading'
   }
 })
+
 // Sets the title of the page to the value defined in the router.js meta field
 router.beforeEach((to, from, next) => {
   console.log(to)
@@ -37,6 +39,7 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+Vue.use(VuePrism)
 Vue.use(VueApollo)
 Vue.use(BootstrapVue)
 Vue.use(require('vue-moment'))

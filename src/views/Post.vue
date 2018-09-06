@@ -22,6 +22,7 @@
 import Post from '@/graphql/Post.graphql'
 
 import VueMarkdown from 'vue-markdown'
+
 // Components
 import Loading from '@/components/Loading.vue'
 import FeaturedImage from '@/components/FeaturedImage'
@@ -58,26 +59,56 @@ export default {
     z-index: 1;
     position: relative;
     padding:0 16px;
+    font-weight: 300;
     h1, h2, h3, h4{
       margin-bottom:16px;
+      font-weight: 500;
+    }
+    h2{
+      margin-bottom: px;
+      margin-top:64px;
+      font-weight:300;
+      font-size:24px;
+    }
+    h3{
+      font-size: 18px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      color: rgba(0,0,0,.9);
+    }
+    h4{
+      font-size: 16px;
+      margin-bottom:4px;
     }
     p{
       line-height: 1.5;
-      letter-spacing: .75px;
+      letter-spacing: .55px;
     }
     ul{
       padding-left: 16px;
-      li{
-        margin: 8px;
-        font-size: 16px;
-      }
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: .55px;
+      margin-left:16px;
     }
-    img{
-      max-width: 486px;
-      width:100%;
-      margin: 0 auto;
-      display: inline-block;
+    pre > code{
+      -webkit-overflow-scrolling: touch;
     }
+  }
+}
+
+.image__group{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  margin-bottom:32px;
+  img{
+    margin: 16px;
+    border-radius: 3px;
+  }
+  img:only-child{
+    width: 100%;
+    border: 1px solid #efefef;
   }
 }
   .fade{
@@ -95,5 +126,13 @@ export default {
       }
     }
   }
-
+  @media (max-width: 576px) {
+    pre{
+      max-height: 512px;
+      white-space: wrap;
+      code{
+        white-space: wrap;
+      }
+    }
+  }
 </style>

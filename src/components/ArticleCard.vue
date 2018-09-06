@@ -2,7 +2,7 @@
   <router-link :to="`/post/${slug}`">
     <div class="article-card">
       <div class="article-card__wrapper">
-        <img class="article-card__image" v-if="featuredImage.url" :src="featuredImage.url"/>
+        <img class="article-card__image" v-if="featuredImage" :src="`https://media.graphcms.com//${featuredImage.handle}`"/>
         <div class="article-card__info">
           <div class="article-card__info--left">
             <h2 class="text__title">{{title}}</h2>
@@ -15,6 +15,7 @@
   </router-link>
 </template>
 <script>
+
 export default {
   name: 'ArticleCard',
   props: {
@@ -25,7 +26,7 @@ export default {
     updatedAt: String,
     caseImg: String,
     featured: Boolean,
-    url: String,
+    width: String,
     featuredImage: Object
   }
 }
@@ -80,6 +81,7 @@ export default {
       &__image{
         width:100%;
         height:100%;
+        max-width: 512px;
       }
   }
 

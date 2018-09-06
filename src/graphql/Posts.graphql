@@ -7,7 +7,9 @@ query($first: Int!, $skip: Int!){
     updatedAt
     featured
     featuredImage{
-      url
+      handle
+      width
+      height
       id
     }
   }

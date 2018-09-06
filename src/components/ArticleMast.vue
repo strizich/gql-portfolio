@@ -7,7 +7,7 @@
       <div class="case__mast__wrapper container-fluid">
          <div class="case__mast__content">
         <!-- <featured-image :caseImage="caseImage"/> -->
-        <img class="case__image" v-if="introImage" :src="introImage.url"/>
+        <img class="case__image" v-if="introImage" :src="`https://media.graphcms.com//${introImage.handle}`"/>
         <div class="case__details">
           <h4 class="case__label">Overview</h4>
           <p class="case__text">{{overview}}</p>
@@ -25,6 +25,7 @@
 
 <script>
 import FeaturedImage from '@/components/FeaturedImage'
+
 export default {
   name: 'ArticleMast',
   props: [
@@ -38,6 +39,12 @@ export default {
   ],
   components: {
     FeaturedImage
+  },
+  filters: {
+    truncate: function (value) {
+      if (!value) return ''
+      value = value.toString()
+    }
   }
 }
 </script>
