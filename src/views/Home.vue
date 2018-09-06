@@ -5,7 +5,7 @@
       <div class="cards container">
         <h5 class="cards__section">Case Studies</h5>
           <div class="cards__group row no-gutters">
-            <article-card v-bind="article" v-for="article in posts" v-bind:key="article.slug" sclass="col-md-6 col-xs-12"/>
+            <article-card v-bind="article" v-for="article in posts" v-bind:key="article.slug" class="col-md-6 col-xs-12"/>
           </div>
       </div>
     </div>
