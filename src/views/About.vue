@@ -37,4 +37,5 @@ export default {
       padding-top: 64px;
     }
   }
+
 </style>

@@ -53,37 +53,43 @@ export default {
     margin:0 auto;
   }
   &__content{
-    width:100%;
+    width: 100%;
     max-width: 768px;
     margin: 0 auto;
     z-index: 1;
     position: relative;
-    padding:0 16px;
+    padding:0 64px;
     font-weight: 300;
+
     h1, h2, h3, h4{
-      margin-bottom:16px;
+      margin-bottom: 16px;
       font-weight: 500;
     }
+
     h2{
-      margin-bottom: px;
+      margin-bottom: 16px;
       margin-top:64px;
       font-weight:300;
       font-size:24px;
     }
+
     h3{
       font-size: 18px;
       margin-top: 32px;
       margin-bottom: 16px;
       color: rgba(0,0,0,.9);
     }
+
     h4{
       font-size: 16px;
       margin-bottom:4px;
     }
+
     p{
       line-height: 1.5;
       letter-spacing: .55px;
     }
+
     ul{
       padding-left: 16px;
       font-size: 16px;
@@ -91,6 +97,7 @@ export default {
       letter-spacing: .55px;
       margin-left:16px;
     }
+
     pre > code{
       -webkit-overflow-scrolling: touch;
     }
@@ -102,8 +109,12 @@ export default {
   align-items:center;
   justify-content: center;
   margin-bottom:32px;
+  margin-left:-64px;
+  margin-right:-64px;
+  .col{
+    padding:0px;
+  }
   img{
-    margin: 16px;
     border-radius: 3px;
   }
   img:only-child{
@@ -130,9 +141,12 @@ export default {
     pre{
       max-height: 512px;
       white-space: wrap;
-      code{
+      & > code{
         white-space: wrap;
       }
+    }
+    .case__content{
+      padding: 16px;
     }
   }
 </style>

@@ -80,7 +80,7 @@ export default {
       max-width: 1024px;
       width: 100%;
       margin: 0 auto;
-      padding: 16px;
+      padding: 64px 16px 16px 16px;
     }
     &__wrapper{
       background:#000;

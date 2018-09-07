@@ -1,7 +1,7 @@
 <template>
 <nav class="nav">
   <router-link class="logo" to="/">Jason Strizich | strizich.design</router-link>
-  <ul class="nav__list--right">
+  <ul class="nav__list">
     <li class="nav__item">
       <router-link to="/about" class="nav__link">About</router-link>
     </li>
@@ -31,7 +31,7 @@ export default {
     right:0;
     width:100%;
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     z-index: 100;
     align-content: center;
     padding-top:38px;
@@ -46,17 +46,13 @@ export default {
       }
     }
     &__list{
-        &--left{
           display:flex;
           list-style-type: none;
           margin-bottom:0;
           padding:0;
           margin-right:8px;
+          margin-left:auto;
           align-self:center;
-        }
-        &--right{
-          @extend .nav__list--left;
-        }
     }
     &__link{
       display:block;

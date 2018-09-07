@@ -1,12 +1,12 @@
 <template>
   <footer class="container-fluid">
-    <div class="container">
+    <div class="container footer">
       <div class="row">
-        <div class="col-sm-6">
-          Created with love.
+        <div class="col-sm-6 footer__tagline">
+          <p>Created with love.</p>
         </div>
-        <div class="col-sm-6 text-right">
-          Powered by <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://www.graphcms.com" target="_blank">GraphCMS</a>
+        <div class="col-sm-6 footer__powered-by">
+          <p>Powered by <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://www.graphcms.com" target="_blank">GraphCMS</a></p>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   footer{
     margin-top:64px;
     padding:16px 0;
@@ -28,5 +28,20 @@ export default {
     position: static;
     bottom:0;
     font-size: 11px;
+  }
+  @media (max-width: 576px) {
+    .footer{
+         p{
+          margin-bottom:0px;
+          letter-spacing: 0.75px;
+        }
+      &__tagline{
+        text-align: center;
+        font-size: 14px;
+      }
+      &__powered-by{
+        text-align: center;
+      }
+    }
   }
 </style>
