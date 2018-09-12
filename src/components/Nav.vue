@@ -27,14 +27,14 @@ export default {
   .nav{
     list-style-type: none;
     position:sticky;
-    top: -38px;
+    top: -32px;
     right:0;
     width:100%;
     display:flex;
     justify-content: flex-end;
     z-index: 100;
     align-content: center;
-    padding-top:38px;
+    padding-top:32px;
     padding-left: env(safe-area-inset-left);
     padding-right: env(safe-area-inset-right);
     background-color: rgba(255,255,255,.75);
@@ -63,9 +63,9 @@ export default {
       padding:8px;
       transition:all .32s;
       font-size: 14px;
+      text-align: center;
        &.router-link-exact-active, &.router-link-active{
         background-color: rgba(0,0,0, .1);
-        text-align: center;
       }
     }
   }
@@ -83,16 +83,15 @@ export default {
   justify-content: space-between;
   &__link{
     display:block;
-    width:100%;
     color:#fff;
-    padding:8px 4px;
-    margin:8px 16px;
+    margin:8px 0;
     transition:all .32s;
     font-size: 14px;
     background: transparent;
+    border-radius: 6px;
     &.router-link-exact-active, &.router-link-active{
       color:#000;
-      background-color: rgba(255,255,255, .75);
+      background-color: rgba(255,255,255, 1);
     }
   }
 }

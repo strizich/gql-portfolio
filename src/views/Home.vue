@@ -3,7 +3,7 @@
     <home-intro/>
     <div class="container-fluid" v-if="posts">
       <div class="cards container">
-        <h5 class="cards__section">Case Studies</h5>
+        <h5 class="cards__section">Project Articles</h5>
           <div class="cards__group row no-gutters">
             <article-card v-bind="article" v-for="article in posts" v-bind:key="article.slug" class="col-sm-6 col-xs-12"/>
           </div>
