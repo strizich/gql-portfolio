@@ -1,5 +1,5 @@
 <template>
-  <div :id="name" class="bar__wrapper" v-b-tooltip.hover.top="`${description}`" variant="primary">
+  <div :id="name" class="bar__wrapper" v-b-tooltip.top="`${description}`" variant="primary">
     <div class="bar__container">
       <span class="bar__fill"></span>
       <span class="bar__line"></span>

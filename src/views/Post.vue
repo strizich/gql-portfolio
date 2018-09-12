@@ -1,6 +1,7 @@
 <template>
-<div class="case">
-  <article class="case" v-if="post">
+<div class="post__wrapper">
+  <article-status v-if="post.status=='DRAFT'" :status="post.status"/>
+  <article class="post" v-if="post">
     <article-mast
       :title="post.title"
       :postType="post.postType"
@@ -9,27 +10,18 @@
       :overview="post.projectDetail.overview"
       :updatedAt="post.projectDetail.launchDate"
       :backgroundColor="post.projectDetail.backgroundColor"/>
-    <div class="case__wrapper">
-        <vue-markdown class="case__content" :source="post.content"/>
+    <div class="post__wrapper">
+        <vue-markdown class="post__content" :source="post.content"/>
     </div>
   </article>
   <loading v-else/>
-  <transition name="slide" appear mode="out-in">
-    <div class="case__status" v-if="post.status=='DRAFT' && !hideMe">
-      <button class="btn btn__close" v-on:click="hideMe = !hideMe"></button>
-      <div class="case__status--content">
-        <p class="text__lead">This entry is still a work in progress.</p>
-        <p>Subject matter, grammer and structure may change drasticly in the future.</p>
-      </div>
-    </div>
-  </transition>
 </div>
 </template>
 
 <script>
 // Case Study Query
 import Post from '@/graphql/Post.graphql'
-
+import ArticleStatus from '@/components/ArticleStatus.vue'
 import VueMarkdown from 'vue-markdown'
 
 // Components
@@ -53,51 +45,19 @@ export default {
       }
     }
   },
-  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown }
+  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown, ArticleStatus }
 }
 </script>
 
 <style lang="scss">
-.btn__close{
-  padding:8px;
-  align-self: center;
-  display:block;
-  width:32px;
-  height:32px;
-  margin:16px;
-}
-.case{
+.post{
   padding-bottom:32px;
   &__wrapper{
     padding-top:32px;
     max-width: 1024px;
     margin:0 auto;
   }
-  &__status{
-    width:100%;
-    position:sticky;
-    z-index: 100;
-    background:#000;
-    color:#fff;
-    bottom: 0;
-    left:0;
-    right:0;
-    margin-bottom:-32px;
-    height:64px;
-    display:flex;
-    align-items:center;
-    padding:0;
-    padding-bottom: env(safe-area-inset-bottom);
-    button{
-      width:32px;
-    }
-    p{
-      margin:4px 8px;
-      font-weight: 300;
-      letter-spacing: .75px;
-      font-size: 11px;
-    }
-  }
+
   &__content{
     width: 100%;
     max-width: 768px;
@@ -173,7 +133,7 @@ export default {
 }
   .slide{
     &-enter{
-      transform: translateY(64px);
+      opacity:0;
       &-from{
         transition: transform .23s;
         transition-delay: .23s;
@@ -181,7 +141,7 @@ export default {
     }
     &-leave{
       &-to{
-        transform: translateY(64px);
+        opacity:0;
         transition: transform .23s;
       }
     }
@@ -194,7 +154,7 @@ export default {
         white-space: wrap;
       }
     }
-    .case__content{
+    .post__content{
       padding: 16px;
     }
     .image__group{

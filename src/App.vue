@@ -1,16 +1,14 @@
 <template>
 <div id="app">
-   <app-nav/>
-  <!-- <PageHeader/> -->
+  <app-nav/>
   <div class="app__wrapper">
-
     <main>
       <!-- <transition name="fade" appear mode="out-in"> -->
         <router-view/>
       <!-- </transition> -->
     </main>
   </div>
-      <app-footer/>
+  <app-footer/>
 </div>
 </template>
 
@@ -34,6 +32,7 @@ main{
   min-height:100vh;
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+  padding-bottom:32px;
 }
 
 header{
