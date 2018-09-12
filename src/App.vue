@@ -1,9 +1,10 @@
 <template>
 <div id="app">
+   <app-nav/>
   <!-- <PageHeader/> -->
   <div class="app__wrapper">
+
     <main>
-      <app-nav/>
       <!-- <transition name="fade" appear mode="out-in"> -->
         <router-view/>
       <!-- </transition> -->
