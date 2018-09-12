@@ -1,6 +1,6 @@
 <template>
-  <footer class="container-fluid">
-    <div class="container footer">
+  <footer class="container-fluid footer">
+    <div class="container">
       <div class="row">
         <div class="col-sm-6 footer__tagline">
           <p>Created with love.</p>
@@ -20,14 +20,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  footer{
-    margin-top:64px;
+  .footer{
     padding:16px 0;
     background: #efefef;
     color:#000;
     position: static;
     bottom:0;
     font-size: 11px;
+    p{
+      margin-bottom: 0;
+    }
+      &__powered-by{
+        text-align: right;
+      }
   }
   @media (max-width: 576px) {
     .footer{

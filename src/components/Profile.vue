@@ -34,7 +34,6 @@ export default {
   index: '',
   data: () => ({
     isShown: false,
-    firstName: '',
     delay: 50
   }),
   components: { ListItem, StatBar },

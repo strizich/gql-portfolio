@@ -8,6 +8,7 @@ query($slug: String!){
     postType
     slug
     content
+    status
     introImage{
       handle
       id

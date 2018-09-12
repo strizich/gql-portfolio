@@ -5,7 +5,9 @@ query($first: Int!, $skip: Int!){
     postType
     slug
     updatedAt
+    createdAt
     featured
+    status
     featuredImage{
       handle
       width

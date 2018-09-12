@@ -64,10 +64,14 @@ export default {
   &__label{
     font-size: 14px;
     font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+    opacity: .75;
   }
   &__text{
     font-size: 16px;
     font-weight: 100;
+    letter-spacing: .75px;
   }
   &__details{
     padding:16px;

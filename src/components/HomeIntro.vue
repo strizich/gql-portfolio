@@ -56,12 +56,11 @@ export default {
   color: #fff;
   padding: 64px 72px;
   font-size: 27px;
-  height: 50vh;
+  height: 75vh;
   width: 100%;
   display: flex;
+  align-items: center;
   &__group{
-    align-content: center;
-    justify-content: center;
     line-height:1.3;
   }
   &__lead{

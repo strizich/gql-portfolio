@@ -1,5 +1,5 @@
 <template>
-<div class="cases">
+<div class="case">
   <article class="case" v-if="post">
     <article-mast
       :title="post.title"
@@ -14,6 +14,15 @@
     </div>
   </article>
   <loading v-else/>
+  <transition name="slide" appear mode="out-in">
+    <div class="case__status" v-if="post.status=='DRAFT' && !hideMe">
+      <button class="btn btn__close" v-on:click="hideMe = !hideMe"></button>
+      <div class="case__status--content">
+        <p class="text__lead">This entry is still a work in progress.</p>
+        <p>Subject matter, grammer and structure may change drasticly in the future.</p>
+      </div>
+    </div>
+  </transition>
 </div>
 </template>
 
@@ -31,6 +40,9 @@ import ArticleMast from '@/components/ArticleMast'
 export default {
   name: 'Post',
   url: '',
+  data: () => ({
+    hideMe: false
+  }),
   apollo: {
     post: {
       query: Post,
@@ -46,11 +58,44 @@ export default {
 </script>
 
 <style lang="scss">
+.btn__close{
+  padding:8px;
+  align-self: center;
+  display:block;
+  width:32px;
+  height:32px;
+  margin:16px;
+}
 .case{
+  padding-bottom:32px;
   &__wrapper{
     padding-top:32px;
     max-width: 1024px;
     margin:0 auto;
+  }
+  &__status{
+    width:100%;
+    position:sticky;
+    z-index: 100;
+    background:#000;
+    color:#fff;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin-bottom:-32px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    padding:0;
+    button{
+      width:32px;
+    }
+    p{
+      margin:4px 8px;
+      font-weight: 300;
+      letter-spacing: .75px;
+      font-size: 11px;
+    }
   }
   &__content{
     width: 100%;
@@ -97,9 +142,12 @@ export default {
       letter-spacing: .55px;
       margin-left:16px;
     }
-
+    pre[class*="language-"] {
+      margin-bottom:16px;
+    }
     pre > code{
       -webkit-overflow-scrolling: touch;
+      margin-bottom: 100px;
     }
   }
 }
@@ -122,18 +170,18 @@ export default {
     border: 1px solid #efefef;
   }
 }
-  .fade{
+  .slide{
     &-enter{
-      opacity: 0;
-      &-active{
-        transition: all .23s;
+      transform: translateY(64px);
+      &-from{
+        transition: transform .23s;
         transition-delay: .23s;
       }
     }
     &-leave{
-      &-active{
-      transition: all .23s;
-        opacity: 0;
+      &-to{
+        transform: translateY(64px);
+        transition: transform .23s;
       }
     }
   }
@@ -148,6 +196,11 @@ export default {
     .case__content{
       padding: 16px;
     }
+    .image__group{
+      margin-left:-16px;
+      margin-right:-16px;
+    }
   }
+
   // a comment
 </style>

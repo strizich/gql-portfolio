@@ -34,6 +34,11 @@ export default new Router({
         title: 'strizich.design | about me',
         description: 'About me. Jason Strizich'
       }
+    },
+    // Bad links get sent home
+    {
+      path: '*',
+      redirect: '/'
     }
   ],
   // Scrolls to the top of the page on click. If the browser's back button is used scroll to the last saved position
