@@ -35,6 +35,8 @@ export default {
     z-index: 100;
     align-content: center;
     padding-top:38px;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
     background-color: rgba(255,255,255,.75);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 1px 0 rgba(0,0,0,.05);
@@ -89,11 +91,8 @@ export default {
     font-size: 14px;
     background: transparent;
     &.router-link-exact-active, &.router-link-active{
-      color:#fff;
-      box-shadow: 0 4px 0 purple;
-      background-color: rgba(255,255,255, .1);
-      text-align: center;
-      padding: 8px 4px;
+      color:#000;
+      background-color: rgba(255,255,255, .75);
     }
   }
 }

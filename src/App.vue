@@ -31,6 +31,8 @@ export default {
 main{
   width:100%;
   min-height:100vh;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 header{

@@ -87,6 +87,7 @@ export default {
     display:flex;
     align-items:center;
     padding:0;
+    padding-bottom: env(safe-area-inset-bottom);
     button{
       width:32px;
     }
