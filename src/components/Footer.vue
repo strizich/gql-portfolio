@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
   .footer{
     padding:16px 0;
-    padding-bottom: env(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
     background: #efefef;
     color:#000;
     position: static;

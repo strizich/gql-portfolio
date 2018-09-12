@@ -44,7 +44,6 @@ export default {
     align-items:center;
     border-radius: 20px;
     padding:0;
-    padding-bottom: env(safe-area-inset-bottom);
     &--trigger{
       justify-content: center;
       align-items: center;
