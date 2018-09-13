@@ -34,6 +34,7 @@ export default {
   }
   @media (max-width: 576px) {
     .footer{
+      padding-bottom:32px;
          p{
           margin-bottom:0px;
           letter-spacing: 0.75px;
