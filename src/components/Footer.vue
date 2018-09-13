@@ -28,9 +28,6 @@ export default {
     p {
       margin-bottom: 0;
     }
-    .row {
-      padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
-    }
     &__powered-by{
       text-align: right;
     }
