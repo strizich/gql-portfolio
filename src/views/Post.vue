@@ -1,5 +1,5 @@
 <template>
-<div class="post__wrapper">
+<div class="post__block">
   <article-status v-if="post.status=='DRAFT'" :status="post.status"/>
   <article class="post" v-if="post">
     <article-mast
@@ -21,11 +21,13 @@
 <script>
 // Case Study Query
 import Post from '@/graphql/Post.graphql'
-import ArticleStatus from '@/components/ArticleStatus.vue'
+
+// Plugins
 import VueMarkdown from 'vue-markdown'
 
 // Components
 import Loading from '@/components/Loading.vue'
+import ArticleStatus from '@/components/ArticleStatus.vue'
 import FeaturedImage from '@/components/FeaturedImage'
 import ArticleMast from '@/components/ArticleMast'
 

@@ -1,4 +1,5 @@
 <template>
+<transition name="fade">
 <div class="post__status" v-if="!hideMe" v-on:click="hideMe = !hideMe">
     <div class="post__status--trigger">
         <span class="btn__close">&times;</span>
@@ -7,6 +8,7 @@
         <p>{{status}}</p>
     </div>
 </div>
+</transition>
 </template>
 
 <script>
@@ -32,13 +34,12 @@ export default {
 .post{
 &__status{
     margin: auto;
-    position:fixed;
+    position: sticky;
     z-index: 100;
     background: #3023AE;
     color: #fff;
-    left: 50%;
-    margin-left: -100px;
-    bottom: 50px;
+    margin-top:8px;
+    top: 65px;
     width: 200px;
     display:flex;
     align-items:center;

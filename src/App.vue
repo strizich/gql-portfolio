@@ -47,13 +47,12 @@ header{
 
 // Router Fade Animations
 .fade-enter-active, .fade-leave-active {
-  transition: .23s;
+  transition: opacity .23s;
 }
 .fade-enter-active {
   transition-delay: .23s;
 }
 .fade-enter, .fade-leave-active {
   opacity: 0;
-  transform: scale(0.9);
 }
 </style>

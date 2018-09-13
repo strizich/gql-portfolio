@@ -47,9 +47,7 @@ export default {
   }
 
 }
-.headline{
-  font-weight: 100;
-}
+
 .intro {
   background: url('/img/intro-mast-bg.svg') no-repeat center center;
   background-size: cover;

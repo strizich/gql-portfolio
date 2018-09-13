@@ -1,6 +1,5 @@
 <template>
   <footer class="container-fluid footer">
-    <div class="container">
       <div class="row">
         <div class="col-sm-6 footer__tagline">
           <p>Created with love.</p>
@@ -8,7 +7,6 @@
         <div class="col-sm-6 footer__powered-by">
           <p>Powered by <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://www.graphcms.com" target="_blank">GraphCMS</a></p>
         </div>
-      </div>
     </div>
   </footer>
 </template>
@@ -21,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
   .footer{
-    padding:16px 0;
+    padding:16px;
     padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
     background: #efefef;
     color:#000;

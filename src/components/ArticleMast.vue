@@ -49,6 +49,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+
 .post{
   margin: 0 auto;
   position: relative;
@@ -60,6 +61,7 @@ export default {
     max-width:100%;
     max-height:100%;
     flex-grow: 1;
+    border-radius: 12px;
   }
   &__label{
     font-size: 14px;
@@ -69,7 +71,7 @@ export default {
     opacity: .75;
   }
   &__text{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 100;
     letter-spacing: .75px;
   }
@@ -93,7 +95,7 @@ export default {
       max-width:1024px;
       width:100%;
       display:flex;
-      padding: 16px;
+      padding: 16px 0;
       z-index: 1;
       position: relative;
       color:#fff;

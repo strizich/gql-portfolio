@@ -8,7 +8,7 @@
             <p class="card__lead">{{postType}}</p>
             <div class="article-card__group">
               <div class="article-card__info--left">
-                 <date class="card__date">{{createdAt | moment("MMM D YYYY, h:mm a")}}</date>
+                 <span class="card__date">{{createdAt | moment("MMM D YYYY, h:mm a")}}</span>
               </div>
             </div>
           </div>
