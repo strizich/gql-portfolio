@@ -20,18 +20,20 @@ export default {
 <style lang="scss" scoped>
   .footer{
     padding:16px;
-    padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
     background: #efefef;
     color:#000;
     position: static;
     bottom:0;
     font-size: 11px;
-    p{
+    p {
       margin-bottom: 0;
     }
-      &__powered-by{
-        text-align: right;
-      }
+    .row {
+      padding-bottom: calc(env(safe-area-inset-bottom) + 16px);
+    }
+    &__powered-by{
+      text-align: right;
+    }
   }
   @media (max-width: 576px) {
     .footer{

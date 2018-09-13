@@ -7,7 +7,9 @@
       <div class="post__mast__wrapper container-fluid">
          <div class="post__mast__content">
         <!-- <featured-image :caseImage="caseImage"/> -->
-        <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com//${introImage.handle}`"/>
+        <div class="post__image__container">
+          <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`"/>
+        </div>
         <div class="post__details">
           <h4 class="post__label">Overview</h4>
           <p class="post__text">{{overview}}</p>
@@ -53,15 +55,16 @@ export default {
 .post{
   margin: 0 auto;
   position: relative;
-  &__image{
-    width:100%;
-    height:100%;
+  &__image__container{
     min-width:50%;
     min-height:50%;
-    max-width:100%;
-    max-height:100%;
+    max-width:512px;
+    max-height:512px;
     flex-grow: 1;
-    border-radius: 12px;
+    text-align: center;
+    img{
+      max-width:100%;
+    }
   }
   &__label{
     font-size: 14px;
