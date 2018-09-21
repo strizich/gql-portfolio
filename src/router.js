@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import About from './views/About.vue'
 import Post from './views/Post.vue'
-
+import AllPosts from './views/AllPosts.vue'
+import Playground from './views/Playground.vue'
 Vue.use(Router)
 export default new Router({
   mode: 'history',
@@ -30,6 +31,24 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About,
+      meta: {
+        title: 'strizich.design | about me',
+        description: 'About me. Jason Strizich'
+      }
+    },
+    {
+      path: '/projects',
+      name: 'All Posts',
+      component: AllPosts,
+      meta: {
+        title: 'strizich.design | about me',
+        description: 'About me. Jason Strizich'
+      }
+    },
+    {
+      path: '/playground',
+      name: 'playground',
+      component: Playground,
       meta: {
         title: 'strizich.design | about me',
         description: 'About me. Jason Strizich'

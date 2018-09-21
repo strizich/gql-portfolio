@@ -18,7 +18,6 @@ import HomeIntro from '@/components/HomeIntro.vue'
 import Posts from '@/graphql/Posts.graphql'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
-import VueGallery from 'vue-gallery'
 
 export default {
   name: 'home',
@@ -31,13 +30,15 @@ export default {
     $loadingKey: 'loading',
     posts: {
       query: Posts,
-      variables: {
-        first: 6,
-        skip: 0
+      variables () {
+        return {
+          first: 4,
+          skip: 0
+        }
       }
     }
   },
-  components: { Loading, ArticleCard, VueGallery, HomeIntro }
+  components: { Loading, ArticleCard, HomeIntro }
   // methods: {
   //   getImages: function () {
   //     for (let i = 0; i < this.samples.length; i++) {

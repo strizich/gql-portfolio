@@ -3,6 +3,9 @@
   <router-link class="logo" to="/">Jason Strizich | strizich.design</router-link>
   <ul class="nav__list">
     <li class="nav__item">
+      <router-link to="/projects" class="nav__link">Projects</router-link>
+    </li>
+    <li class="nav__item">
       <router-link to="/about" class="nav__link">About</router-link>
     </li>
   </ul>

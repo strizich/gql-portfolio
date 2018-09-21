@@ -8,6 +8,7 @@ query($first: Int!, $skip: Int!){
     createdAt
     featured
     status
+    content
     featuredImage{
       handle
       width

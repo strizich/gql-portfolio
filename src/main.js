@@ -46,6 +46,10 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
+Vue.filter('truncate', function (text, stop, clamp) {
+  return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
+})
+
 Vue.use(VuePrism)
 Vue.use(VueApollo)
 Vue.use(BootstrapVue)
@@ -59,3 +63,5 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+// blah

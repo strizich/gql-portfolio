@@ -35,7 +35,8 @@ export default {
   name: 'Post',
   url: '',
   data: () => ({
-    hideMe: false
+    hideMe: false,
+    status: ''
   }),
   apollo: {
     post: {
