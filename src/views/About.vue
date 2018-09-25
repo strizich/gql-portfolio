@@ -4,6 +4,7 @@
   <div class="about__content container">
     <vue-markdown class="page__intro" :source="about.introduction"/>
     <vue-markdown class="page__content" :source="about.content"/>
+      <p>Im 'Tripping out here'</p>
   </div>
 </div>
 </template>
