@@ -38,14 +38,6 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-// Sets the title of the page to the value defined in the router.js meta field
-router.beforeEach((to, from, next) => {
-  console.log(to)
-  document.title = to.meta.title
-  document.description = to.meta.description
-  next()
-})
-
 Vue.filter('truncate', function (text, stop, clamp) {
   return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
 })
