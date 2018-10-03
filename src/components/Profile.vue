@@ -18,7 +18,7 @@
           {{skill.name}}
         </stat-bar>
       </div>
-      <button class="mobile__details" v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button>
+      <!-- <button class="mobile__details" v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
     </div>
     </div>
 </template>

@@ -2,9 +2,9 @@
 <div class="about" v-if="about">
   <profile />
   <div class="about__content container">
-    <vue-markdown class="page__intro" :source="about.introduction"/>
-    <vue-markdown class="page__content" :source="about.content"/>
-      <p>Im 'Tripping out here'</p>
+    <!-- <vue-markdown class="page__intro" :source="about.introduction"/>
+    <vue-markdown class="page__content" :source="about.content"/> -->
+    <p>Still writing the content for this page.</p>
   </div>
 </div>
 </template>
