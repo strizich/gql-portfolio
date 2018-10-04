@@ -5,7 +5,7 @@
           <p>Created with love.</p>
         </div>
         <div class="col-sm-6 footer__powered-by">
-          <p>Powered by <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://www.graphcms.com" target="_blank">GraphCMS</a></p>
+          <p>Powered by <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a> and <a href="https://www.graphcms.com" target="_blank" rel="noopener">GraphCMS</a></p>
         </div>
     </div>
   </footer>
@@ -20,7 +20,7 @@ export default {
 <style lang="scss" scoped>
   .footer{
     padding:16px;
-    background: #efefef;
+    background: rgba(0,0,0,.1);
     color:#000;
     position: static;
     bottom:0;

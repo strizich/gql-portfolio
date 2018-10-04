@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import HomeIntro from '@/components/HomeIntro.vue'
 import Posts from '@/graphql/Posts.graphql'
+import HomeIntro from '@/components/HomeIntro.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
 
