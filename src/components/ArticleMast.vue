@@ -8,7 +8,7 @@
          <div class="post__mast__content">
         <!-- <featured-image :caseImage="caseImage"/> -->
         <div class="post__image__container">
-          <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`"/>
+          <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`" :alt="title"/>
         </div>
         <div class="post__details">
           <h4 class="post__label">Overview</h4>
