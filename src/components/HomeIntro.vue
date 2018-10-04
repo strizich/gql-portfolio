@@ -9,23 +9,25 @@
 </template>
 
 <script>
-import anime from 'animejs'
+// import anime from 'animejs'
+import bPopoverDirective from 'bootstrap-vue/es/directives/popover/popover'
 export default {
   name: 'HomeIntro',
-  methods: {
-    animateLogo: function () {
-      let offsetLogo = anime.timeline()
-      offsetLogo
-        .add({
-          targets: '.intro__group',
-          opacity: 1,
-          top: [{value: '30'}]
-        })
-    }
-  },
-  mounted () {
-    this.animateLogo()
-  }
+  directives: { 'b-popover': bPopoverDirective }
+  // methods: {
+  //   animateLogo: function () {
+  //     let offsetLogo = anime.timeline()
+  //     offsetLogo
+  //       .add({
+  //         targets: '.intro__group',
+  //         opacity: 1,
+  //         top: [{value: '30'}]
+  //       })
+  //   }
+  // },
+  // mounted () {
+  //   this.animateLogo()
+  // }
 }
 </script>
 

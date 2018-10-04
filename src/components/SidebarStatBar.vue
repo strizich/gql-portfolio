@@ -11,6 +11,8 @@
 </template>
 
 <script>
+// import bTooltip from 'bootstrap-vue/components/tooltip/tooltip'
+import bTooltipDirective from 'bootstrap-vue/es/directives/tooltip/tooltip'
 import anime from 'animejs'
 export default {
   name: 'StatBar',
@@ -47,7 +49,9 @@ export default {
   },
   props: [
     'x', 'delay', 'name', 'description'
-  ]
+  ],
+  // components: { 'b-tooltip': bTooltip },
+  directives: { 'b-tooltip': bTooltipDirective }
 }
 </script>
 

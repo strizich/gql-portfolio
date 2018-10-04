@@ -8,12 +8,13 @@ import { ApolloClient } from 'apollo-client'
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import VueApollo from 'vue-apollo'
-import BootstrapVue from 'bootstrap-vue'
+// import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/scss/global.scss'
 import './registerServiceWorker'
 import 'prismjs/themes/prism.css'
+
 const httpLink = new HttpLink({
   uri: 'https://api-useast.graphcms.com/v1/cjk4io64p001h01gmk8nchuzs/master'
 })
@@ -44,13 +45,15 @@ Vue.filter('truncate', function (text, stop, clamp) {
 
 Vue.use(VuePrism)
 Vue.use(VueApollo)
-Vue.use(BootstrapVue)
+// Vue.use(BootstrapVue)
 Vue.use(require('vue-moment'))
 Vue.use(Vue2Filters)
+
 Vue.config.productionTip = false
+Vue.config.performance = true
 
 new Vue({
-  provide: apolloProvider.provide(),
+  apolloProvider,
   router: router,
   store,
   render: h => h(App)

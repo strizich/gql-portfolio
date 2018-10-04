@@ -1,6 +1,6 @@
 <template>
 <div class="post__block">
-  <article-status v-if="post.status=='DRAFT'" :status="post.status"/>
+  <article-status v-if="post" :status="post.status"/>
   <article class="post" v-if="post">
     <article-mast
       :title="post.title"
@@ -33,10 +33,8 @@ import ArticleMast from '@/components/ArticleMast'
 
 export default {
   name: 'Post',
-  url: '',
   data: () => ({
-    hideMe: false,
-    status: ''
+    hideMe: false
   }),
   apollo: {
     post: {
