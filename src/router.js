@@ -1,32 +1,63 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
-import CaseStudy from './views/CaseStudy.vue'
-import Sidebar from './components/Sidebar.vue'
+
+const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue')
+const Post = () => import(/* webpackChunkName: "post" */ './views/Post.vue')
+const About = () => import(/* webpackChunkName: "about" */ './views/About.vue')
+// const AllPosts = () => import(/* webpackChunkName: "allposts" */ './views/AllPosts.vue')
 Vue.use(Router)
+
 export default new Router({
   mode: 'history',
   routes: [
     {
       path: '/',
       name: 'home',
+      meta: {
+        title: 'strizich.design | home',
+        desciption: 'My personal code playground and design portfolio.'
+      },
       component: Home
     },
     {
-      path: '/case/:slug',
-      name: 'case',
-      component: CaseStudy
+      path: '/post/:slug',
+      name: 'post',
+      meta: {
+        title: 'strizich.design | case study',
+        description: 'A thing that I have worked on.'
+      },
+      component: Post
     },
     {
       path: '/about',
       name: 'about',
+      meta: {
+        title: 'strizich.design | about me',
+        description: 'About me. Jason Strizich'
+      },
       component: About
     },
+    // {
+    //   path: '/projects',
+    //   name: 'All Posts',
+    //   meta: {
+    //     title: 'strizich.design | about me',
+    //     description: 'About me. Jason Strizich'
+    //   },
+    //   component: AllPosts
+    // },
+    // Bad links get sent home
     {
-      path: '/sidebar',
-      name: 'sidebar',
-      component: Sidebar
+      path: '*',
+      redirect: '/'
     }
-  ]
+  ],
+  // Scrolls to the top of the page on click. If the browser's back button is used scroll to the last saved position
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return {x: 0, y: 0}
+    }
+  }
 })

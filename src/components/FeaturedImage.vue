@@ -16,12 +16,20 @@ export default {
    .case{
      &__image{
         text-align: center;
-         width:100%;
-            box-shadow: 0 -20px 20px -20px rgba(0,0,0,.3);
-            max-height:300px;
-            height:300px;
-            background-size:cover;
-            text-indent: -10000px;
+        width:100%;
+        max-width:512px;
+        width:100%;
+        min-height:100%;
+        background-size:contain;
+        background-position: center center;
+        text-indent: -10000px;
     }
   }
+  @media (max-width: 576px) {
+  .case{
+     &__image{
+       height:512px;
+     }
+  }
+}
 </style>

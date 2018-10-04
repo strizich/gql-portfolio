@@ -1,71 +1,89 @@
 <template>
   <div class="home">
-    <div class="intro">
-        <h1 class="headline">Hello, I am a UI/UX Engineer.</h1>
-        <p class="lead"></p>
-    </div>
-    <div class="container-fluid">
- <div class="cards">
-      <h3 class="cards__section">Samples</h3>
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-4">
-         BLAH BLAH BLAH
-        </div>
+    <home-intro/>
+    <div class="container-fluid" v-if="posts">
+      <div class="cards container">
+        <h5 class="cards__section">Project Articles</h5>
+          <div class="cards__group row no-gutters">
+            <article-card v-bind="article" v-for="article in posts" v-bind:key="article.slug" class="col-sm-6 col-xs-12"/>
+          </div>
       </div>
     </div>
-    <div class="cards" v-if="caseStudies">
-      <h3 class="cards__section">Case Studies</h3>
-        <div class="cards__group row">
-          <article-card v-bind="caseStudy" v-for="caseStudy in caseStudies" v-bind:key="caseStudy.slug" class="col-sm-12 col-md-6 col-lg-4"/>
-        </div>
-    </div>
-    <loading v-else/>
-    </div>
+    <loading v-else />
   </div>
 </template>
 
 <script>
-import caseStudies from '@/graphql/CaseStudies.graphql'
+import HomeIntro from '@/components/HomeIntro.vue'
+import Posts from '@/graphql/Posts.graphql'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
+
 export default {
   name: 'home',
   loading: false,
   data: () => ({
     loading: 0,
-    postCount: null,
-    imgUrl: 'img/onemv_dispatch_feature.png'
+    samples: {}
   }),
   apollo: {
     $loadingKey: 'loading',
-    caseStudies: {
-      // graphql/CaseStudies.graphql
-      query: caseStudies,
-      variables: {
-        first: 6,
-        skip: 0
+    posts: {
+      query: Posts,
+      variables () {
+        return {
+          first: 4,
+          skip: 0
+        }
       }
     }
   },
-  components: { Loading, ArticleCard }
+  components: { Loading, ArticleCard, HomeIntro }
+  // methods: {
+  //   getImages: function () {
+  //     for (let i = 0; i < this.samples.length; i++) {
+  //       const sampleGroup = this.samples[i].images
+  //       for (let j = 0; j < sampleGroup.length; j++) {
+  //         const sampleImage = this.samples[i].images[j].url
+  //         this.imageUrls.push(sampleImage)
+  //       }
+  //     }
+  //     return this.imageUrls
+  //   }
+  // },
+  // mounted () {
+  //   this.getImages()
+  // }
 }
 </script>
 
 <style lang="scss" scoped>
-  .intro{
-    background:#fff;
-    color:#000;
-    padding:64px 72px;
+  .sample{
+    &__images{
+      display:flex;
+      flex-wrap: wrap;
+      width:100%;
+    }
+    &__image{
+      width: 130px;
+      height:130px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: left center;
+      margin:16px;
+    }
   }
   .cards{
     margin:0 auto;
-
+    max-width:1024px;
     &__group{
       display:flex;
     }
     &__section{
       margin-bottom: 16px;
       margin-top:64px;
+      font-weight:300;
+      font-size:24px;
     }
   }
 </style>

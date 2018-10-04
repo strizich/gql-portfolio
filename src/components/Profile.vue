@@ -1,39 +1,39 @@
 <template>
-  <div class="profile" v-if="about">
+  <div class="profile">
     <!-- <img class="profile__img" :src="avatar"/> -->
     <div class="profile__info">
       <h2 class="profile__name">{{about.firstName}} {{about.lastName}}</h2>
-      <p class="text__title">{{about.title}}</p>
-    </div>
-    <div class="profile__contact">
+      <p class="profile__title">{{about.title}}</p>
       <list-item icon="email" size="md">{{about.email}}</list-item>
       <list-item icon="iphone" size="md">{{about.phone}}</list-item>
     </div>
-    <transition-group name="slide" tag="div" class="profile__stats">
-      <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
-        :name="skill.id"
-        :x="skill.rating"
-        :delay="delay * index">
-        {{skill.name}}
-      </stat-bar>
-    </transition-group>
-    <!-- v-if="skill.featured || isShown" -->
-    <!-- <button v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
+    <div class="profile__stats container-fluid" :class="{'mobile__show':isShown}">
+      <div class="row">
+        <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
+          :name="skill.id"
+          :x="skill.rating"
+          :description="skill.description"
+          :delay="delay * index"
+          class="col-md-3 col-sm-6">
+          {{skill.name}}
+        </stat-bar>
+      </div>
+      <!-- <button class="mobile__details" v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
+    </div>
     </div>
 </template>
 
 <script>
-import ListItem from '../components/SidebarListItem.vue'
-import StatBar from '../components/SidebarStatBar.vue'
-import about from '@/graphql/Sidebar.graphql'
+import ListItem from '@/components/SidebarListItem.vue'
+import StatBar from '@/components/SidebarStatBar.vue'
+import about from '@/graphql/Profile.graphql'
 
 export default {
-  name: 'Sidebar',
+  name: 'Profile',
   showMore: false,
   index: '',
   data: () => ({
     isShown: false,
-    firstName: '',
     delay: 50
   }),
   components: { ListItem, StatBar },
@@ -56,25 +56,36 @@ export default {
 </script>
 
 <style lang="scss">
+  .mobile__details{
+    width:100%;
+    display:none;
+  }
+  .mobile__show{
+    display:none;
+  }
   .profile {
-    top: 0;
-    left: 0;
-    height: 100vh;
     overflow-x: hidden;
     color: #000;
     background:#fff;
     box-shadow: 1px 0 0 rgba(0,0,0,.1);
+    display:flex;
+    padding:64px 0 32px;
+    justify-content: space-between;
     &__name{
       padding-bottom: 0;
+      font-size: 24px;
+      margin-bottom:0;
+    }
+    &__title{
+      color: rgba(0,0,0,.75);
+      margin-bottom: 0;
     }
     &__info{
-      padding: 8px 16px;
+      padding: 16px;
+      flex-shrink: 0;
     }
-    &__contact{
-      padding: 0 16px ;
-    }
-    &__stats{
-      margin-top: 16px;
+    &__stat{
+      width:100%;
     }
   }
   .slide-enter, .slide-leave-to {
@@ -99,4 +110,20 @@ export default {
     border:none;
     background-color:#efefef;
   }
+
+@media (max-width: 576px) {
+  .profile{
+    height:auto;
+    overflow: auto;
+    display:block;
+  }
+  .mobile{
+    &__details{
+      display:block;
+    }
+    &__show{
+      display:block;
+    }
+  }
+}
 </style>

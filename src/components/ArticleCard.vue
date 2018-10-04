@@ -1,20 +1,23 @@
 <template>
-  <router-link :to="`/case/${slug}`">
+  <router-link :to="`/post/${slug}`">
     <div class="article-card">
       <div class="article-card__wrapper">
-        <div class="article-card__image" v-if="featuredImage" :style="`background-image: url(${featuredImage.url});`"></div>
+        <img class="article-card__image" v-if="featuredImage" :src="`https://media.graphcms.com//${featuredImage.handle}`"/>
         <div class="article-card__info">
-          <div class="article-card__info--left">
-            <h2 class="text__title">{{title}}</h2>
-            <p class="text__lead">{{postType}}</p>
-            <small class="text__sm">{{updatedAt | moment("dddd, MMM Do YYYY, h:mm a")}}</small>
+            <h2 class="card__title">{{title}}</h2>
+            <p class="card__lead">{{postType}}</p>
+            <div class="article-card__group">
+              <div class="article-card__info--left">
+                 <span class="card__date">{{createdAt | moment("MMM D YYYY, h:mm a")}}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </router-link>
 </template>
 <script>
+
 export default {
   name: 'ArticleCard',
   props: {
@@ -25,27 +28,44 @@ export default {
     updatedAt: String,
     caseImg: String,
     featured: Boolean,
-    url: String,
-    featuredImage: Object
+    width: String,
+    featuredImage: Object,
+    createdAt: String
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .text{
+  .card{
     &__title {
-      font-size: 24px;
+      font-size: 20px;
       color:#000;
       margin-bottom:0;
+    }
+    &__label{
+      font-size: 11px;
+      margin-bottom:0;
+      margin-top:0;
     }
     &__lead {
       font-size: 14px;
       color:#000;
       margin-bottom:0px;
     }
+    &__flex {
+      display:flex;
+      justify-content: space-between;
+      width:100%;
+    }
+    &__date{
+      text-transform: uppercase;
+      letter-spacing: .75px;
+      margin-top:8px;
+    }
     &__sm {
       font-size: 11px;
       color:rgba(0,0,0,.5);
+      margin-bottom:0;
       &:hover{
         text-decoration: none;
       }
@@ -53,23 +73,54 @@ export default {
   }
   .article-card{
       z-index: 1;
-      width:100%;
       position: relative;
-      margin: 34px 0;
+      color:#000;
       &__wrapper{
-        box-shadow: 0 20px 20px -10px rgba(0,0,0,.15), 0 20px 15px -20px rgba(0,0,0,.25);
+        &:hover{
+          .article-card__info{
+            opacity:1;
+            background: rgba(255,255,255, .85);
+          }
+        }
       }
       &__info{
-        display:flex;
-        justify-content: space-between;
         padding: 16px;
         background: #fff;
+        opacity:0;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        transition: all .3s;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        &--left{
+          display:flex;
+          flex-direction: column;
+          font-size: 11px;
+        }
+        &--right{
+          display:flex;
+          flex-direction: column;
+          font-size: 11px;
+        }
+         &__group{
+          display:flex;
+        }
       }
       &__image{
         width:100%;
-        height:300px;
-        background-size: cover;
-        background-position: center center;
+        height:100%;
+        max-width: 512px;
       }
+  }
+
+  @media (max-width: 576px) {
+    .article-card__info{
+      opacity:1;
+      position:static;
+    }
   }
 </style>

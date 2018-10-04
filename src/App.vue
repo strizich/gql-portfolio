@@ -1,27 +1,23 @@
 <template>
 <div id="app">
-  <!-- <PageHeader/> -->
+  <app-nav/>
   <div class="app__wrapper">
-    <header class="d-none d-sm-block">
-      <sidebar/>
-    </header>
-
     <main>
-      <app-nav/>
-      <transition name="fade" appear mode="out-in">
+      <!-- <transition name="fade" appear mode="out-in"> -->
         <router-view/>
-      </transition>
+      <!-- </transition> -->
     </main>
   </div>
+  <app-footer/>
 </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar.vue'
 import AppNav from './components/Nav.vue'
+import AppFooter from './components/Footer.vue'
 export default {
   name: 'app',
-  components: { Sidebar, AppNav }
+  components: { AppNav, AppFooter }
 }
 </script>
 
@@ -33,11 +29,15 @@ export default {
 
 main{
   width:100%;
+  min-height:100vh;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom:32px;
 }
 
 header{
   min-width:200px;
-  background:#fff;
+  background: #fff;
   height:100vh;
   position: sticky;
   position: -webkit-sticky;
@@ -47,12 +47,12 @@ header{
 
 // Router Fade Animations
 .fade-enter-active, .fade-leave-active {
-  transition: .23s;
+  transition: opacity .23s;
 }
 .fade-enter-active {
   transition-delay: .23s;
 }
 .fade-enter, .fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 </style>

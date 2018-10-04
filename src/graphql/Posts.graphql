@@ -1,13 +1,18 @@
 query($first: Int!, $skip: Int!){ 
-  caseStudies(first: $first, skip: $skip){
+  posts(first: $first, skip: $skip){
     id
     title
     postType
     slug
     updatedAt
+    createdAt
     featured
+    status
+    content
     featuredImage{
-      url
+      handle
+      width
+      height
       id
     }
   }

@@ -1,16 +1,40 @@
 <template>
-  <div class="about">
-    <p>{{description}}</p>
+<div class="about" v-if="about">
+  <profile />
+  <div class="about__content container">
+    <!-- <vue-markdown class="page__intro" :source="about.introduction"/>
+    <vue-markdown class="page__content" :source="about.content"/> -->
+    <p>Still writing the content for this page.</p>
   </div>
+</div>
 </template>
+
 <script>
+import Profile from '@/components/Profile.vue'
+import about from '@/graphql/AboutView.graphql'
+import VueMarkdown from 'vue-markdown'
+
 export default {
   data: () => ({
-    title: 'Hello World',
-    description: 'here there'
+    title: 'About'
   }),
-  render: function (createElement) {
-    return createElement('h1', this.title)
-  }
+  apollo: {
+    about: {
+      query: about,
+      variables () {
+        return {
+          slug: 'about'
+        }
+      }
+    }
+  },
+  components: {Profile, VueMarkdown}
 }
 </script>
+<style lang="scss">
+  .about{
+    &__content{
+      padding-top: 64px;
+    }
+  }
+</style>

@@ -1,126 +1,115 @@
 <template>
-  <div class="case__mast">
-      <div class="case__mast__header">
+  <div class="post__mast">
+      <div class="post__mast__header">
         <h1 class="text__headline">{{title}}</h1>
         <p class="text__lead">{{postType}}</p>
       </div>
-      <div class="case__mast__content">
-        <featured-image :caseImage="caseImage"/>
-        <div class="case__details">
-          <div class="row">
-            <div class="col-sm-12 col-md-4">
-              <h4 class="text__label">Overview</h4>
-              <p class="text">{{overview}}</p>
-            </div>
-            <div class="col-sm-12 col-md-4">
-              <h4 class="text__label">My Role</h4>
-              <ul class="text__list">
-                <li class="text" v-for="myRole in role" v-bind:key="myRole">{{myRole}}</li>
-              </ul>
-            </div>
-            <div class="col-sm-12 col-md-4">
-              <h4 class="text__label">Launch Date</h4>
-              <p class="text__large">{{updatedAt | moment("MMM YYYY")}}</p>
-            </div>
-          </div>
+      <div class="post__mast__wrapper container-fluid">
+         <div class="post__mast__content">
+        <!-- <featured-image :caseImage="caseImage"/> -->
+        <div class="post__image__container">
+          <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`"/>
         </div>
+        <div class="post__details">
+          <h4 class="post__label">Overview</h4>
+          <p class="post__text">{{overview}}</p>
+          <h4 class="post__label">My Role</h4>
+          <ul class="post__list">
+            <li class="post__text" v-for="myRole in role" v-bind:key="myRole">{{myRole}}</li>
+          </ul>
+          <h4 class="post__label">Launch Date</h4>
+          <p class="post__text">{{updatedAt | moment("MMM YYYY")}}</p>
+        </div>
+      </div>
       </div>
     </div>
 </template>
 
 <script>
 import FeaturedImage from '@/components/FeaturedImage'
+
 export default {
   name: 'ArticleMast',
   props: [
     'postType',
-    'caseImage',
+    'introImage',
     'title',
     'role',
     'overview',
+    'backgroundColor',
     'updatedAt'
   ],
   components: {
     FeaturedImage
+  },
+  filters: {
+    truncate: function (value) {
+      if (!value) return ''
+      value = value.toString()
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
-.vs-col{
-  padding:8px;
-}
-.text{
-  font-size: 14px;
-  font-weight: 300;
-  line-height:1.3;
-  letter-spacing: .75px;
-  &__headline{
-    font-size: 36px;
-    margin-bottom:0;
-    font-weight: 300;
-  }
-  &__large{
-    font-size: 42px;
-    font-weight: 100;
-  }
-  &__lead{
-    font-size: 18px;
-  }
-  &__label{
-    font-size: 11px;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom:8px;
-    margin-top:16px;
-  }
-  &__list{
-    padding:0;
-    list-style-type: none;
-    li{
-      border-bottom:1px solid rgba(255,255,255,.15);
-      padding: 8px 0;
-      &:last-child{
-        border-width:0;
-      }
-    }
-  }
-}
 
-.case{
+.post{
   margin: 0 auto;
   position: relative;
-  &__mast{
-    padding-bottom: 32px;
-    position: relative;
-    &:before{
-      background:#000;
-      position:absolute;
-      display:block;
-      top: 30%;
-      bottom:0;
-      left:0;
-      right:0;
-      content:'';
-      z-index: 0;
+  &__image__container{
+    min-width:50%;
+    min-height:50%;
+    max-width:512px;
+    max-height:512px;
+    flex-grow: 1;
+    text-align: center;
+    img{
+      max-width:100%;
     }
+  }
+  &__label{
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+    opacity: .75;
+  }
+  &__text{
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: .75px;
+  }
+  &__details{
+    padding:16px;
+    width:100%;
+    flex-grow: 2
+  }
+  &__mast{
+    position: relative;
     &__header{
-      margin-top: 32px;
       max-width: 1024px;
       width: 100%;
-      margin: 32px auto 0;
-      padding: 32px 16px;
+      margin: 0 auto;
+      padding: 64px 16px 16px 16px;
+    }
+    &__wrapper{
+      background:#000;
     }
     &__content{
       max-width:1024px;
       width:100%;
-      padding:0 16px;
+      display:flex;
+      padding: 16px 0;
       z-index: 1;
       position: relative;
       color:#fff;
       margin:0 auto;
-
     }
+  }
+}
+
+@media (max-width: 576px) {
+  .post__mast__content{
+    display:block;
   }
 }
 </style>
