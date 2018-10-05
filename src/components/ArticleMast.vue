@@ -1,6 +1,7 @@
 <template>
   <div class="post__mast">
-      <div class="post__mast__header">
+    <div class="post__mast--group">
+       <div class="post__mast__header">
         <h1 class="text__headline">{{title}}</h1>
         <p class="text__lead">{{postType}}</p>
       </div>
@@ -10,19 +11,20 @@
         <div class="post__image__container">
           <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`" :alt="title"/>
         </div>
-        <div class="post__details">
+        <div class="post__details" v-if="mast">
           <h4 class="post__label">Overview</h4>
-          <p class="post__text">{{overview}}</p>
+          <p class="post__text">{{mast.overview}}</p>
           <h4 class="post__label">My Role</h4>
           <ul class="post__list">
-            <li class="post__text" v-for="myRole in role" v-bind:key="myRole">{{myRole}}</li>
+            <li class="post__text" v-for="(myRole, index) in mast.role" :key="index">{{myRole}}</li>
           </ul>
           <h4 class="post__label">Launch Date</h4>
-          <p class="post__text">{{updatedAt | moment("MMM YYYY")}}</p>
+          <p class="post__text">{{mast.launchDate | moment("MMM YYYY")}}</p>
         </div>
       </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -31,6 +33,7 @@ import FeaturedImage from '@/components/FeaturedImage'
 export default {
   name: 'ArticleMast',
   props: [
+    'mast',
     'postType',
     'introImage',
     'title',

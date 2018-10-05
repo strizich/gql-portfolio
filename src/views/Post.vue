@@ -1,17 +1,14 @@
 <template>
-<div class="post__block">
-  <article-status v-if="post" :status="post.status"/>
+  <div class="post__block">
+  <article-status v-if="post" :status="post.status" />
   <article class="post" v-if="post">
     <article-mast
       :title="post.title"
       :postType="post.postType"
       :introImage="post.introImage"
-      :role="post.projectDetail.role"
-      :overview="post.projectDetail.overview"
-      :updatedAt="post.projectDetail.launchDate"
-      :backgroundColor="post.projectDetail.backgroundColor"/>
+      :mast="post.projectDetail"/>
     <div class="post__wrapper">
-        <vue-markdown class="post__content" :source="post.content"/>
+      <vue-markdown class="post__content" :source="post.content" />
     </div>
   </article>
   <loading v-else/>
@@ -34,8 +31,37 @@ import ArticleMast from '@/components/ArticleMast'
 export default {
   name: 'Post',
   data: () => ({
-    hideMe: false
+    hideMe: false,
+    something: 'blah',
+    title: null,
+    post: [],
+    handle: null
   }),
+  metaInfo () {
+    return {
+      title: this.post.title,
+      titleTemplate: '%s | strizich.design',
+      meta: [
+        { charset: 'utf-8' },
+        {
+          'property': 'og:title',
+          'content': this.post.title
+        },
+        {
+          'property': 'og:type',
+          'content': 'website'
+        },
+        {
+          'property': 'og:image',
+          'content': 'https://media.graphcms.com/resize=w:512,h:512,f:max/' + this.imageHandle
+        },
+        {
+          'property': 'og.url',
+          'content': 'https://strizich.design/post/' + this.$route.params.slug
+        }
+      ]
+    }
+  },
   apollo: {
     post: {
       query: Post,
@@ -46,7 +72,14 @@ export default {
       }
     }
   },
-  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown, ArticleStatus }
+  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown, ArticleStatus },
+  computed: {
+    imageHandle: function () {
+      if (this.post.introImage) {
+        return this.post.introImage.handle
+      }
+    }
+  }
 }
 </script>
 
