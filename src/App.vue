@@ -20,7 +20,6 @@ export default {
   components: { AppNav, AppFooter }
 }
 </script>
-
 <style lang="scss">
 .app__wrapper{
   display:flex;
