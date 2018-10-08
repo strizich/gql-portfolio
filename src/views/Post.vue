@@ -32,7 +32,6 @@ export default {
   name: 'Post',
   data: () => ({
     hideMe: false,
-    something: 'blah',
     title: null,
     post: [],
     handle: null

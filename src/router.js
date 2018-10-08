@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Meta from 'vue-meta'
 
 const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue')
 const Post = () => import(/* webpackChunkName: "post" */ './views/Post.vue')
 const About = () => import(/* webpackChunkName: "about" */ './views/About.vue')
 // const AllPosts = () => import(/* webpackChunkName: "allposts" */ './views/AllPosts.vue')
 Vue.use(Router)
-Vue.use(Meta)
+
 export default new Router({
   mode: 'history',
   routes: [
