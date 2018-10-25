@@ -1,0 +1,11 @@
+query($slug:String){
+  latestUpdate(where:{slug:$slug}) {
+    createdAt
+    updatedAt
+    status
+    id
+    title
+    slug
+    content
+  }
+}

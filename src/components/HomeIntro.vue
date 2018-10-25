@@ -56,7 +56,7 @@ export default {
   color: #fff;
   padding: 64px 72px;
   font-size: 27px;
-  height: 75vh;
+  height: calc(100vh - 85px);
   width: 100%;
   display: flex;
   align-items: center;

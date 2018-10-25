@@ -1,0 +1,11 @@
+{
+  latestUpdates {
+    createdAt
+    updatedAt
+    status
+    id
+    title
+    slug
+    summary
+  }
+}

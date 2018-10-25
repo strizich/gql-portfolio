@@ -36,31 +36,6 @@ export default {
     post: [],
     handle: null
   }),
-  metaInfo () {
-    return {
-      title: this.post.title,
-      titleTemplate: '%s | strizich.design',
-      meta: [
-        { charset: 'utf-8' },
-        {
-          'property': 'og:title',
-          'content': this.post.title
-        },
-        {
-          'property': 'og:type',
-          'content': 'website'
-        },
-        {
-          'property': 'og:image',
-          'content': 'https://media.graphcms.com/resize=w:512,h:512,f:max/' + this.imageHandle
-        },
-        {
-          'property': 'og.url',
-          'content': 'https://strizich.design/post/' + this.$route.params.slug
-        }
-      ]
-    }
-  },
   apollo: {
     post: {
       query: Post,
