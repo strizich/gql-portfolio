@@ -79,13 +79,12 @@ export default {
         &:hover{
           .article-card__info{
             opacity:1;
-            background: rgba(255,255,255, .85);
+            background: url('/img/arrowRight.svg') no-repeat calc(100% - 16px) center rgba(255,255,255,.5);
           }
         }
       }
       &__info{
         padding: 16px;
-        background: #fff;
         opacity:0;
         position:absolute;
         top:0;
@@ -96,6 +95,7 @@ export default {
         display: flex;
         justify-content: center;
         flex-direction: column;
+        background: url('/img/arrowRight.svg') no-repeat  calc(100% - 32px) center rgba(255,255,255,.5);
         &--left{
           display:flex;
           flex-direction: column;
@@ -119,8 +119,13 @@ export default {
 
   @media (max-width: 576px) {
     .article-card__info{
-      opacity:1;
-      position:static;
+      top: auto;
+      bottom: 0;
+      opacity: 1;
+      background: url('/img/arrowRight.svg') no-repeat  calc(100% - 16px) center rgba(255,255,255,.5);
+      &:hover{
+        background: url('/img/arrowRight.svg') no-repeat  calc(100% - 16px) center rgba(255,255,255,.5);
+      }
     }
   }
 </style>

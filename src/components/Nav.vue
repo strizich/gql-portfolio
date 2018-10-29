@@ -72,30 +72,23 @@ export default {
     }
   }
 @media (max-width: 576px) {
-.logo{
-  position:absolute;
-  left:50%;
-  margin-left:-16px;
-}
-.nav{
-  width:100%;
-  background:#000;
-  color:#fff;
-  display:flex;
-  justify-content: space-between;
-  &__link{
-    display:block;
-    color:#fff;
-    margin:8px 0;
-    transition:all .32s;
-    font-size: 14px;
-    background: transparent;
-    border-radius: 6px;
-    &.router-link-exact-active, &.router-link-active{
-      color:#000;
-      background-color: rgba(255,255,255, 1);
+  .logo{
+    position:absolute;
+    left:50%;
+    margin-left:-16px;
+  }
+  .nav{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    &__link{
+      display:block;
+      margin:8px 0;
+      transition:all .32s;
+      font-size: 14px;
+      background: transparent;
+      border-radius: 6px;
     }
   }
-}
 }
 </style>

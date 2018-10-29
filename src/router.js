@@ -4,6 +4,7 @@ import Router from 'vue-router'
 const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue')
 const Post = () => import(/* webpackChunkName: "post" */ './views/Post.vue')
 const About = () => import(/* webpackChunkName: "about" */ './views/About.vue')
+const BlogPost = () => import(/* webpackChunkName: "BlogPost" */ './views/BlogPost.vue')
 // const AllPosts = () => import(/* webpackChunkName: "allposts" */ './views/AllPosts.vue')
 Vue.use(Router)
 
@@ -27,6 +28,15 @@ export default new Router({
         description: 'A thing that I have worked on.'
       },
       component: Post
+    },
+    {
+      path: '/blog/:slug',
+      name: 'blog',
+      meta: {
+        title: 'strizich.design | blog post',
+        description: 'Latest changes'
+      },
+      component: BlogPost
     },
     {
       path: '/about',

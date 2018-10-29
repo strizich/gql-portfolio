@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(1.000000, 1.000000)">
+            <circle id="Oval" fill="#FFFFFF" cx="16" cy="16" r="16"></circle>
+            <g id="Group-2" transform="translate(2.876404, 9.707865)" stroke="#4A4A4A" stroke-linecap="round">
+                <path d="M0.179775281,6.11235955 L25.3483146,6.11235955" id="Line-6"></path>
+                <g id="Group" transform="translate(21.573034, 0.000000)">
+                    <path d="M0,0.179775281 L4.6741573,6.11235955" id="Line-6"></path>
+                    <path d="M4.6741573,6.11235955 L0,12.4044944" id="Line-6" stroke-linejoin="round"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

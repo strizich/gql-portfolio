@@ -93,9 +93,11 @@ export default {
       width: 100%;
       margin: 0 auto;
       padding: 64px 16px 16px 16px;
+      min-height:160px;
     }
     &__wrapper{
       background:#000;
+      min-height:300px;
     }
     &__content{
       max-width:1024px;

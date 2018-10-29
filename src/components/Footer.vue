@@ -20,11 +20,11 @@ export default {
 <style lang="scss" scoped>
   .footer{
     padding:16px;
-    background: rgba(0,0,0,.1);
     color:#000;
     position: static;
     bottom:0;
     font-size: 11px;
+    border-top:1px solid #efefef;
     p {
       margin-bottom: 0;
     }
