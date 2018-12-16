@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import AppNav from './components/Nav.vue'
-import AppFooter from './components/Footer.vue'
+import TheNav from './components/TheNav.vue'
+import TheFooter from './components/TheFooter.vue'
 export default {
   name: 'app',
-  components: { AppNav, AppFooter }
+  components: { TheNav, TheFooter }
 }
 </script>
 <style lang="scss">

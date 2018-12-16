@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'AppNav'
+  name: 'TheNav'
 }
 </script>
 
