@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <home-intro/>
+    <home-mast/>
     <div class="container-fluid" v-if="posts">
       <div class="cards container">
         <h5 class="cards__section">Project Articles</h5>
@@ -29,7 +29,7 @@
 
 <script>
 import Posts from '@/graphql/Posts.graphql'
-import HomeIntro from '@/components/HomeIntro.vue'
+import HomeMast from '@/components/HomeMast.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
 import BlogPosts from '@/graphql/BlogPosts.graphql'
@@ -37,7 +37,7 @@ import BlogPosts from '@/graphql/BlogPosts.graphql'
 import VueMarkdown from 'vue-markdown'
 
 export default {
-  name: 'home',
+  name: 'Home',
   loading: false,
   data: () => ({
     loading: 0,
@@ -58,7 +58,7 @@ export default {
       query: BlogPosts
     }
   },
-  components: { Loading, ArticleCard, HomeIntro, VueMarkdown }
+  components: { Loading, ArticleCard, HomeMast, VueMarkdown }
   // methods: {
   //   getImages: function () {
   //     for (let i = 0; i < this.samples.length; i++) {

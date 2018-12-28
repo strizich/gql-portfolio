@@ -4,19 +4,19 @@
     <div class="profile__info">
       <h2 class="profile__name">{{about.firstName}} {{about.lastName}}</h2>
       <p class="profile__title">{{about.title}}</p>
-      <list-item icon="email" size="md">{{about.email}}</list-item>
-      <list-item icon="iphone" size="md">{{about.phone}}</list-item>
+      <profile-list-item icon="email" size="md">{{about.email}}</profile-list-item>
+      <profile-list-item icon="iphone" size="md">{{about.phone}}</profile-list-item>
     </div>
     <div class="profile__stats container-fluid" :class="{'mobile__show':isShown}">
       <div class="row">
-        <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
+        <profile-stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
           :name="skill.id"
           :x="skill.rating"
           :description="skill.description"
           :delay="delay * index"
           class="col-md-3 col-sm-6">
           {{skill.name}}
-        </stat-bar>
+        </profile-stat-bar>
       </div>
       <!-- <button class="mobile__details" v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
     </div>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import ListItem from '@/components/SidebarListItem.vue'
-import StatBar from '@/components/SidebarStatBar.vue'
+import ProfileListItem from '@/components/ProfileListItem.vue'
+import ProfileStatBar from '@/components/ProfileStatBar.vue'
 import about from '@/graphql/Profile.graphql'
 
 export default {
@@ -36,7 +36,7 @@ export default {
     isShown: false,
     delay: 50
   }),
-  components: { ListItem, StatBar },
+  components: { ProfileListItem, ProfileStatBar },
   apollo: {
     about: {
       query: about,

@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-  <app-nav/>
+  <the-nav/>
   <div class="app__wrapper">
     <main>
       <!-- <transition name="fade" appear mode="out-in"> -->
@@ -8,7 +8,7 @@
       <!-- </transition> -->
     </main>
   </div>
-  <app-footer/>
+  <the-footer/>
 </div>
 </template>
 
@@ -16,7 +16,7 @@
 import TheNav from './components/TheNav.vue'
 import TheFooter from './components/TheFooter.vue'
 export default {
-  name: 'app',
+  name: 'App',
   components: { TheNav, TheFooter }
 }
 </script>

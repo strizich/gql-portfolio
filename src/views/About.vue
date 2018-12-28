@@ -15,6 +15,7 @@ import about from '@/graphql/AboutView.graphql'
 import VueMarkdown from 'vue-markdown'
 
 export default {
+  name: 'About',
   data: () => ({
     title: 'About'
   }),

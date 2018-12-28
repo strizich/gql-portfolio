@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'ListItem',
+  name: 'ProfileListItem',
   props: [
     'icon',
     'size',

@@ -25,11 +25,10 @@ import VueMarkdown from 'vue-markdown'
 // Components
 import Loading from '@/components/Loading.vue'
 import ArticleStatus from '@/components/ArticleStatus.vue'
-import FeaturedImage from '@/components/FeaturedImage'
 import ArticleMast from '@/components/ArticleMast'
 
 export default {
-  name: 'Post',
+  name: 'Article',
   data: () => ({
     hideMe: false,
     title: null,
@@ -71,7 +70,7 @@ export default {
       }
     }
   },
-  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown, ArticleStatus },
+  components: { Loading, ArticleMast, VueMarkdown, ArticleStatus },
   computed: {
     imageHandle: function () {
       if (this.post.introImage) {
