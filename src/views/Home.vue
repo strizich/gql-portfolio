@@ -32,7 +32,6 @@ import Posts from '@/graphql/Posts.graphql'
 import HomeMast from '@/components/HomeMast.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
-import BlogPosts from '@/graphql/BlogPosts.graphql'
 
 import VueMarkdown from 'vue-markdown'
 
@@ -53,9 +52,6 @@ export default {
           skip: 0
         }
       }
-    },
-    latestUpdates: {
-      query: BlogPosts
     }
   },
   components: { Loading, ArticleCard, HomeMast, VueMarkdown }

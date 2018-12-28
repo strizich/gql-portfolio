@@ -5,6 +5,8 @@ query($slug: String!){
     title
     email
     phone
+    introduction
+    content
   	userSkills{
       id
       name

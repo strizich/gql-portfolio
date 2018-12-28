@@ -1,18 +1,16 @@
 <template>
 <div class="about" v-if="about">
-  <profile />
+  <profile-mast v-bind="about"/>
   <div class="about__content container">
-    <!-- <vue-markdown class="page__intro" :source="about.introduction"/>
-    <vue-markdown class="page__content" :source="about.content"/> -->
     <p>Still writing the content for this page.</p>
   </div>
 </div>
 </template>
 
 <script>
-import Profile from '@/components/Profile.vue'
-import about from '@/graphql/AboutView.graphql'
-import VueMarkdown from 'vue-markdown'
+import ProfileMast from '@/components/ProfileMast'
+
+import about from '@/graphql/About.graphql'
 
 export default {
   name: 'About',
@@ -29,7 +27,7 @@ export default {
       }
     }
   },
-  components: {Profile, VueMarkdown}
+  components: {ProfileMast}
 }
 </script>
 <style lang="scss">
