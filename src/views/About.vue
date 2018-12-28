@@ -1,16 +1,19 @@
 <template>
-<div class="about" v-if="about">
-  <profile-mast v-bind="about"/>
-  <div class="about__content container">
-    <p>Still writing the content for this page.</p>
+<div class="about">
+  <loading v-if="$apollo.loading"/>
+  <div class="about__wrapper" v-else>
+    <profile-mast v-bind="about"/>
+    <div class="about__content container">
+      <p>Still writing the content for this page.</p>
+    </div>
   </div>
 </div>
 </template>
 
 <script>
 import ProfileMast from '@/components/ProfileMast'
-
-import about from '@/graphql/About.graphql'
+import Loading from '@/components/Loading'
+import About from '@/graphql/About.graphql'
 
 export default {
   name: 'About',
@@ -19,7 +22,7 @@ export default {
   }),
   apollo: {
     about: {
-      query: about,
+      query: About,
       variables () {
         return {
           slug: 'about'
@@ -27,7 +30,7 @@ export default {
       }
     }
   },
-  components: {ProfileMast}
+  components: {ProfileMast, Loading}
 }
 </script>
 <style lang="scss">

@@ -82,7 +82,7 @@ export default {
     flex-grow: 1;
     text-align: center;
     display:flex;
-    align-itemsLcent
+    align-items:center;
     img{
       max-width:100%;
     }

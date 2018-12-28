@@ -1,30 +1,18 @@
 <template>
-  <div class="home">
+<div class="home">
+  <loading v-if="$apollo.loading"/>
+  <div class="home__content" v-else>
     <home-mast/>
-    <div class="container-fluid" v-if="posts">
+    <div class="container-fluid">
       <div class="cards container">
         <h5 class="cards__section">Project Articles</h5>
           <div class="cards__group row no-gutters">
-            <article-card v-bind="article" v-for="article in posts" v-bind:key="article.slug" class="col-sm-6 col-xs-12"/>
+            <article-card v-bind="article" v-for="article in posts" :key="article.slug" class="col-sm-6 col-xs-12"/>
           </div>
       </div>
-      <!-- <div class="updates container" v-if="latestUpdates">
-        <h5 class="cards__section">Latest Updates</h5>
-        <router-link :to="`/blog/${update.slug}`" v-for="update in latestUpdates" :key="update.id">
-        <article class="update">
-            <div class="update__header">
-              <h4>{{update.title}}</h4>
-              <small>{{update.createdAt| moment("MMM D YYYY, h:mm a")}}</small>
-            </div>
-            <div class="update__summary">
-              <vue-markdown>{{update.summary}}</vue-markdown>
-            </div>
-        </article>
-        </router-link>
-      </div> -->
     </div>
-    <loading v-else />
   </div>
+</div>
 </template>
 
 <script>
@@ -55,21 +43,6 @@ export default {
     }
   },
   components: { Loading, ArticleCard, HomeMast, VueMarkdown }
-  // methods: {
-  //   getImages: function () {
-  //     for (let i = 0; i < this.samples.length; i++) {
-  //       const sampleGroup = this.samples[i].images
-  //       for (let j = 0; j < sampleGroup.length; j++) {
-  //         const sampleImage = this.samples[i].images[j].url
-  //         this.imageUrls.push(sampleImage)
-  //       }
-  //     }
-  //     return this.imageUrls
-  //   }
-  // },
-  // mounted () {
-  //   this.getImages()
-  // }
 }
 </script>
 

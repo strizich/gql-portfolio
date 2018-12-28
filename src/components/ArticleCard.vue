@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/post/${slug}`">
+  <router-link :to="`/article/${slug}`">
     <div class="article-card">
       <div class="article-card__wrapper">
         <img class="article-card__image" v-if="featuredImage" :src="`https://media.graphcms.com//${featuredImage.handle}`" :alt="title"/>
