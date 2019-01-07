@@ -7,7 +7,7 @@ query($slug: String!){
     phone
     introduction
     content
-  	userSkills{
+    userSkills {
       id
       name
       rating

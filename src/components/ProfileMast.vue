@@ -9,7 +9,7 @@
     </div>
     <div class="profile__stats container-fluid">
       <div class="row">
-        <profile-stat-bar v-for="(skill, index) in userSkills" v-bind:key="skill.id"
+        <profile-stat-bar v-for="(skill, index) in userSkills" :key="skill.id"
           :name="skill.id"
           :x="skill.rating"
           :description="skill.description"
@@ -74,7 +74,6 @@ export default {
   .profile {
     overflow-x: hidden;
     color: #000;
-    background:#fff;
     box-shadow: 1px 0 0 rgba(0,0,0,.1);
     display:flex;
     padding:64px 0 32px;
@@ -100,7 +99,6 @@ export default {
     height: 0px;
     padding: 0 16px;
     border:none;
-    background-color:#efefef;
   }
   .slide-enter-active, .slide-leave-active {
     transition: height .5s, opacity .32s, padding .5s;

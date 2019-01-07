@@ -20,7 +20,6 @@ import Posts from '@/graphql/Posts.graphql'
 import HomeMast from '@/components/HomeMast.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 import Loading from '@/components/Loading.vue'
-
 import VueMarkdown from 'vue-markdown'
 
 export default {

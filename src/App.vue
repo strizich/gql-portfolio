@@ -3,9 +3,7 @@
   <the-nav/>
   <div class="app__wrapper">
     <main>
-      <!-- <transition name="fade" appear mode="out-in"> -->
         <router-view/>
-      <!-- </transition> -->
     </main>
   </div>
   <the-footer/>
@@ -42,16 +40,5 @@ header{
   position: -webkit-sticky;
   top:0;
   left:0;
-}
-
-// Router Fade Animations
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .23s;
-}
-.fade-enter-active {
-  transition-delay: .23s;
-}
-.fade-enter, .fade-leave-active {
-  opacity: 0;
 }
 </style>

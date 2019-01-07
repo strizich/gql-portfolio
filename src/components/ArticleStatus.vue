@@ -1,6 +1,6 @@
 <template>
 <transition name="fade">
-<div class="post__status" v-if="!hideMe && status=='DRAFT'" v-on:click="hideMe = !hideMe">
+<div class="post__status" v-if="!hideMe && status=='DRAFT'" @click="hideMe = !hideMe">
     <div class="post__status--trigger">
         <span class="btn__close">&times;</span>
     </div>
