@@ -85,6 +85,7 @@ export default {
     align-items:center;
     img{
       max-width:100%;
+      margin: 0 auto;
     }
   }
   &__label{
