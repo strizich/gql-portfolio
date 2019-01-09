@@ -21,7 +21,6 @@
     </div>
     </div>
 </template>
-
 <script>
 import ProfileListItem from '../components/ProfileListItem.vue'
 import ProfileStatBar from '../components/ProfileStatBar.vue'
