@@ -6,8 +6,8 @@
       <article-status :status="post.status" />
       <article-mast
         :title="post.title"
-        :postType="post.postType"
-        :introImage="post.introImage"
+        :post-type="post.postType"
+        :intro-image="post.introImage"
         :mast="post.projectDetail"/>
       <div class="post__wrapper">
         <vue-markdown class="post__content" :source="post.content" />

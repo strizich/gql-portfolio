@@ -1,7 +1,7 @@
 <template>
 <div class="home">
   <loading v-if="$apollo.loading"/>
-  <div class="home__content" v-else>
+  <div class="home__content">
     <home-mast/>
     <div class="container-fluid">
       <div class="cards container">
