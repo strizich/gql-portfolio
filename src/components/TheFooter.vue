@@ -30,6 +30,9 @@ export default {
     }
     &__powered-by{
       text-align: right;
+      a{
+        color: #0057b1;
+      }
     }
   }
   @media (max-width: 576px) {
