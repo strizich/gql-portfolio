@@ -37,16 +37,6 @@ export default new Router({
       },
       component: About
     },
-    // {
-    //   path: '/projects',
-    //   name: 'All Posts',
-    //   meta: {
-    //     title: 'strizich.design | about me',
-    //     description: 'About me. Jason Strizich'
-    //   },
-    //   component: AllPosts
-    // },
-    // Bad links get sent home
     {
       path: '*',
       redirect: '/'

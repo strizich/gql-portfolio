@@ -10,6 +10,7 @@
             <article-card v-bind="article" v-for="article in posts" :key="article.slug" class="col-sm-6 col-xs-12"/>
           </div>
       </div>
+
     </div>
   </div>
 </div>
