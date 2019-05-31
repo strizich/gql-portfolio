@@ -2,10 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 const Home = () => import(/* webpackChunkName: "home" */ './views/Home.vue')
-const Post = () => import(/* webpackChunkName: "post" */ './views/Post.vue')
+const Article = () => import(/* webpackChunkName: "article" */ './views/Article.vue')
 const About = () => import(/* webpackChunkName: "about" */ './views/About.vue')
-const BlogPost = () => import(/* webpackChunkName: "BlogPost" */ './views/BlogPost.vue')
-// const AllPosts = () => import(/* webpackChunkName: "allposts" */ './views/AllPosts.vue')
+
 Vue.use(Router)
 
 export default new Router({
@@ -21,22 +20,13 @@ export default new Router({
       component: Home
     },
     {
-      path: '/post/:slug',
-      name: 'post',
+      path: '/article/:slug',
+      name: 'article',
       meta: {
         title: 'strizich.design | case study',
         description: 'A thing that I have worked on.'
       },
-      component: Post
-    },
-    {
-      path: '/blog/:slug',
-      name: 'blog',
-      meta: {
-        title: 'strizich.design | blog post',
-        description: 'Latest changes'
-      },
-      component: BlogPost
+      component: Article
     },
     {
       path: '/about',
@@ -47,16 +37,6 @@ export default new Router({
       },
       component: About
     },
-    // {
-    //   path: '/projects',
-    //   name: 'All Posts',
-    //   meta: {
-    //     title: 'strizich.design | about me',
-    //     description: 'About me. Jason Strizich'
-    //   },
-    //   component: AllPosts
-    // },
-    // Bad links get sent home
     {
       path: '*',
       redirect: '/'

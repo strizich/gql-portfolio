@@ -1,25 +1,24 @@
 <template>
-  <div class="post__mast">
-    <div class="post__mast--group">
-       <div class="post__mast__header">
+  <div class="article-mast">
+    <div class="article-mast--group">
+       <div class="article-mast__header">
         <h1 class="text__headline">{{title}}</h1>
         <p class="text__lead">{{postType}}</p>
       </div>
-      <div class="post__mast__wrapper container-fluid">
-         <div class="post__mast__content">
-        <!-- <featured-image :caseImage="caseImage"/> -->
-        <div class="post__image__container">
-          <img class="post__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`" :alt="title"/>
+      <div class="article-mast__wrapper container-fluid">
+         <div class="article-mast__content">
+        <div class="article-mast__image__container">
+          <img class="article-mast__image" v-if="introImage" :src="`https://media.graphcms.com/resize=w:512,h:512,f:max/${introImage.handle}`" :alt="title"/>
         </div>
-        <div class="post__details" v-if="mast">
-          <h4 class="post__label">Overview</h4>
-          <p class="post__text">{{mast.overview}}</p>
-          <h4 class="post__label">My Role</h4>
-          <ul class="post__list">
-            <li class="post__text" v-for="(myRole, index) in mast.role" :key="index">{{myRole}}</li>
+        <div class="article-mast__details" v-if="mast">
+          <h4 class="article-mast__label">Overview</h4>
+          <p class="article-mast__text">{{mast.overview}}</p>
+          <h4 class="article-mast__label">My Role</h4>
+          <ul class="article-mast__list">
+            <li class="article-mast__text" v-for="(myRole, index) in mast.role" :key="index">{{myRole}}</li>
           </ul>
-          <h4 class="post__label">Launch Date</h4>
-          <p class="post__text">{{mast.launchDate | moment("MMM YYYY")}}</p>
+          <h4 class="article-mast__label">Launch Date</h4>
+          <p class="article-mast__text">{{mast.launchDate | moment("MMM YYYY")}}</p>
         </div>
       </div>
       </div>
@@ -28,7 +27,6 @@
 </template>
 
 <script>
-import FeaturedImage from '@/components/FeaturedImage'
 
 export default {
   name: 'ArticleMast',
@@ -42,9 +40,6 @@ export default {
     'backgroundColor',
     'updatedAt'
   ],
-  components: {
-    FeaturedImage
-  },
   filters: {
     truncate: function (value) {
       if (!value) return ''
@@ -55,9 +50,30 @@ export default {
 </script>
 <style lang="scss" scoped>
 
-.post{
+.article-mast{
   margin: 0 auto;
   position: relative;
+  &__header{
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 64px 16px 16px 16px;
+    min-height:160px;
+  }
+  &__wrapper{
+    background:#000;
+    min-height:300px;
+  }
+  &__content{
+    max-width:1024px;
+    width:100%;
+    display:flex;
+    padding: 16px 0;
+    z-index: 1;
+    position: relative;
+    color:#fff;
+    margin:0 auto;
+  }
   &__image__container{
     min-width:50%;
     min-height:50%;
@@ -65,8 +81,11 @@ export default {
     max-height:512px;
     flex-grow: 1;
     text-align: center;
+    display:flex;
+    align-items:center;
     img{
       max-width:100%;
+      margin: 0 auto;
     }
   }
   &__label{
@@ -86,34 +105,9 @@ export default {
     width:100%;
     flex-grow: 2
   }
-  &__mast{
-    position: relative;
-    &__header{
-      max-width: 1024px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 64px 16px 16px 16px;
-      min-height:160px;
-    }
-    &__wrapper{
-      background:#000;
-      min-height:300px;
-    }
-    &__content{
-      max-width:1024px;
-      width:100%;
-      display:flex;
-      padding: 16px 0;
-      z-index: 1;
-      position: relative;
-      color:#fff;
-      margin:0 auto;
-    }
-  }
 }
-
 @media (max-width: 576px) {
-  .post__mast__content{
+  .article-mast__content{
     display:block;
   }
 }

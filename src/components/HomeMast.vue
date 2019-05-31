@@ -12,7 +12,7 @@
 // import anime from 'animejs'
 import bPopoverDirective from 'bootstrap-vue/es/directives/popover/popover'
 export default {
-  name: 'HomeIntro',
+  name: 'HomeMast',
   directives: { 'b-popover': bPopoverDirective }
 }
 </script>

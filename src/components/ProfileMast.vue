@@ -2,51 +2,58 @@
   <div class="profile">
     <!-- <img class="profile__img" :src="avatar"/> -->
     <div class="profile__info">
-      <h2 class="profile__name">{{about.firstName}} {{about.lastName}}</h2>
-      <p class="profile__title">{{about.title}}</p>
-      <list-item icon="email" size="md">{{about.email}}</list-item>
-      <list-item icon="iphone" size="md">{{about.phone}}</list-item>
+      <h2 class="profile__name">{{firstName}} {{lastName}}</h2>
+      <p class="profile__title">{{title}}</p>
+      <profile-list-item icon="email" size="md">{{email}}</profile-list-item>
+      <profile-list-item icon="iphone" size="md">{{phone}}</profile-list-item>
     </div>
-    <div class="profile__stats container-fluid" :class="{'mobile__show':isShown}">
+    <div class="profile__stats container-fluid">
       <div class="row">
-        <stat-bar v-for="(skill, index) in about.userSkills" v-bind:key="skill.id"
+        <profile-stat-bar v-for="(skill, index) in userSkills" :key="skill.id"
           :name="skill.id"
           :x="skill.rating"
           :description="skill.description"
           :delay="delay * index"
           class="col-md-3 col-sm-6">
           {{skill.name}}
-        </stat-bar>
+        </profile-stat-bar>
       </div>
-      <!-- <button class="mobile__details" v-on:click="toggle()">{{ isShown ? 'Less Details' : 'More Details' }}</button> -->
     </div>
     </div>
 </template>
-
 <script>
-import ListItem from '@/components/SidebarListItem.vue'
-import StatBar from '@/components/SidebarStatBar.vue'
-import about from '@/graphql/Profile.graphql'
+import ProfileListItem from '../components/ProfileListItem.vue'
+import ProfileStatBar from '../components/ProfileStatBar.vue'
 
 export default {
-  name: 'Profile',
+  name: 'ProfileMast',
   showMore: false,
   index: '',
   data: () => ({
     isShown: false,
     delay: 50
   }),
-  components: { ListItem, StatBar },
-  apollo: {
-    about: {
-      query: about,
-      variables () {
-        return {
-          slug: 'about'
-        }
-      }
+  props: {
+    firstName: {
+      type: String
+    },
+    lastName: {
+      type: String
+    },
+    title: {
+      type: String
+    },
+    email: {
+      type: String
+    },
+    phone: {
+      type: String
+    },
+    userSkills: {
+      type: Array
     }
   },
+  components: { ProfileListItem, ProfileStatBar },
   methods: {
     toggle: function () {
       this.isShown = !this.isShown
@@ -66,7 +73,6 @@ export default {
   .profile {
     overflow-x: hidden;
     color: #000;
-    background:#fff;
     box-shadow: 1px 0 0 rgba(0,0,0,.1);
     display:flex;
     padding:64px 0 32px;
@@ -74,14 +80,14 @@ export default {
     &__name{
       padding-bottom: 0;
       font-size: 24px;
-      margin-bottom:0;
+      margin-bottom:8px;
     }
     &__title{
       color: rgba(0,0,0,.75);
       margin-bottom: 0;
     }
     &__info{
-      padding: 16px;
+      padding: 0 16px;
       flex-shrink: 0;
     }
     &__stat{
@@ -92,7 +98,6 @@ export default {
     height: 0px;
     padding: 0 16px;
     border:none;
-    background-color:#efefef;
   }
   .slide-enter-active, .slide-leave-active {
     transition: height .5s, opacity .32s, padding .5s;

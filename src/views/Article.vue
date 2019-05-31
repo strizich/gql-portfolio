@@ -1,17 +1,19 @@
 <template>
-  <div class="post__block">
-  <article-status v-if="post" :status="post.status" />
-  <article class="post" v-if="post">
-    <article-mast
-      :title="post.title"
-      :postType="post.postType"
-      :introImage="post.introImage"
-      :mast="post.projectDetail"/>
-    <div class="post__wrapper">
-      <vue-markdown class="post__content" :source="post.content" />
-    </div>
-  </article>
-  <loading v-else/>
+<div class="post__page">
+  <loading v-if="$apollo.loading"/>
+  <div class="post__block" v-else>
+    <article class="post">
+      <article-status :status="post.status" />
+      <article-mast
+        :title="post.title"
+        :post-type="post.postType"
+        :intro-image="post.introImage"
+        :mast="post.projectDetail"/>
+      <div class="post__wrapper">
+        <vue-markdown class="post__content" :source="post.content" />
+      </div>
+    </article>
+  </div>
 </div>
 </template>
 
@@ -25,11 +27,10 @@ import VueMarkdown from 'vue-markdown'
 // Components
 import Loading from '@/components/Loading.vue'
 import ArticleStatus from '@/components/ArticleStatus.vue'
-import FeaturedImage from '@/components/FeaturedImage'
 import ArticleMast from '@/components/ArticleMast'
 
 export default {
-  name: 'Post',
+  name: 'Article',
   data: () => ({
     hideMe: false,
     title: null,
@@ -38,27 +39,7 @@ export default {
   }),
   metaInfo () {
     return {
-      title: this.post.title,
-      titleTemplate: '%s | strizich.design',
-      meta: [
-        { charset: 'utf-8' },
-        {
-          'property': 'og:title',
-          'content': this.post.title
-        },
-        {
-          'property': 'og:type',
-          'content': 'website'
-        },
-        {
-          'property': 'og:image',
-          'content': 'https://media.graphcms.com/resize=w:512,h:512,f:max/' + this.imageHandle
-        },
-        {
-          'property': 'og.url',
-          'content': 'https://strizich.design/post/' + this.$route.params.slug
-        }
-      ]
+      title: this.post.title
     }
   },
   apollo: {
@@ -71,7 +52,7 @@ export default {
       }
     }
   },
-  components: { Loading, FeaturedImage, ArticleMast, VueMarkdown, ArticleStatus },
+  components: { Loading, ArticleMast, VueMarkdown, ArticleStatus },
   computed: {
     imageHandle: function () {
       if (this.post.introImage) {

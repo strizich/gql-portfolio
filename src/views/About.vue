@@ -1,26 +1,28 @@
 <template>
-<div class="about" v-if="about">
-  <profile />
-  <div class="about__content container">
-    <!-- <vue-markdown class="page__intro" :source="about.introduction"/>
-    <vue-markdown class="page__content" :source="about.content"/> -->
-    <p>Still writing the content for this page.</p>
+<div class="about">
+  <loading v-if="$apollo.loading"/>
+  <div class="about__wrapper" v-else>
+    <profile-mast v-bind="about"/>
+    <div class="about__content container">
+      <p>Still writing the content for this page.</p>
+    </div>
   </div>
 </div>
 </template>
 
 <script>
-import Profile from '@/components/Profile.vue'
-import about from '@/graphql/AboutView.graphql'
-import VueMarkdown from 'vue-markdown'
+import ProfileMast from '@/components/ProfileMast'
+import Loading from '@/components/Loading'
+import About from '@/graphql/About.graphql'
 
 export default {
+  name: 'About',
   data: () => ({
     title: 'About'
   }),
   apollo: {
     about: {
-      query: about,
+      query: About,
       variables () {
         return {
           slug: 'about'
@@ -28,7 +30,7 @@ export default {
       }
     }
   },
-  components: {Profile, VueMarkdown}
+  components: {ProfileMast, Loading}
 }
 </script>
 <style lang="scss">

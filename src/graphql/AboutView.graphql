@@ -1,6 +1,0 @@
-query($slug: String!){
-	about(where:{slug:$slug}){
-    introduction
-    content
-  }
-}

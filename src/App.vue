@@ -1,23 +1,21 @@
 <template>
 <div id="app">
-  <app-nav/>
+  <the-nav/>
   <div class="app__wrapper">
     <main>
-      <!-- <transition name="fade" appear mode="out-in"> -->
         <router-view/>
-      <!-- </transition> -->
     </main>
   </div>
-  <app-footer/>
+  <the-footer/>
 </div>
 </template>
 
 <script>
-import AppNav from './components/Nav.vue'
-import AppFooter from './components/Footer.vue'
+import TheNav from './components/TheNav.vue'
+import TheFooter from './components/TheFooter.vue'
 export default {
-  name: 'app',
-  components: { AppNav, AppFooter }
+  name: 'App',
+  components: { TheNav, TheFooter }
 }
 </script>
 <style lang="scss">
@@ -42,16 +40,5 @@ header{
   position: -webkit-sticky;
   top:0;
   left:0;
-}
-
-// Router Fade Animations
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .23s;
-}
-.fade-enter-active {
-  transition-delay: .23s;
-}
-.fade-enter, .fade-leave-active {
-  opacity: 0;
 }
 </style>

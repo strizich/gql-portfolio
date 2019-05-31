@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import Vue2Filters from 'vue2-filters'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -47,7 +46,6 @@ Vue.use(VuePrism)
 Vue.use(VueApollo)
 // Vue.use(BootstrapVue)
 Vue.use(require('vue-moment'))
-Vue.use(Vue2Filters)
 
 Vue.config.productionTip = false
 Vue.config.performance = true
