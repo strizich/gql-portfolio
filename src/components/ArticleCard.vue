@@ -1,6 +1,6 @@
 <template>
   <router-link :to="`/article/${slug}`">
-    <div class="article-card sd--elevation--4">
+    <div class="article-card">
       <div class="article-card__wrapper">
         <img class="article-card__image"
           v-if="featuredImage"

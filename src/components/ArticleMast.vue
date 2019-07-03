@@ -61,7 +61,7 @@ export default {
     min-height:160px;
   }
   &__wrapper{
-    background:#000;
+    background: rgba(0,0,0,.8);
     min-height:300px;
   }
   &__content{
@@ -89,15 +89,15 @@ export default {
     }
   }
   &__label{
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: .75px;
     opacity: .75;
   }
   &__text{
-    font-size: 14px;
-    font-weight: 100;
+    font-size: 16px;
+    font-weight: 300;
     letter-spacing: .75px;
   }
   &__details{
