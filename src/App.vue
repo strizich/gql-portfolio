@@ -19,26 +19,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.app__wrapper{
-  display:flex;
-  width:100%;
-}
-
-main{
-  width:100%;
-  min-height:100vh;
-  padding-left: env(safe-area-inset-left);
-  padding-right: env(safe-area-inset-right);
-  padding-bottom:32px;
-}
-
-header{
-  min-width:200px;
-  background: #fff;
-  height:100vh;
-  position: sticky;
-  position: -webkit-sticky;
-  top:0;
-  left:0;
-}
+  main{
+    width:100%;
+    min-height:100vh;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom:32px;
+  }
 </style>

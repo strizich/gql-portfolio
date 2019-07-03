@@ -1,14 +1,15 @@
 
 @import '/variables';
-@import '/glyphs';
 @import '/fonts';
+@import '/glyphs';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 main{
   margin:0 auto;
 }
 body{
   padding:0;
-  font-family: 'Product Sans';
+  font-family: 'Roboto';
   background: #ffffff;
 }
 .col{

@@ -15,7 +15,7 @@ export default new Router({
       name: 'home',
       meta: {
         title: 'strizich.design | home',
-        desciption: 'My personal code playground and design portfolio.'
+        description: 'My personal code playground and design portfolio.'
       },
       component: Home
     },
